@@ -1,4 +1,3 @@
-
 // ============================================================
 //   ATIVIDADE 01.1 – Variáveis e Tipos Primitivos em JavaScript
 // ============================================================
@@ -90,5 +89,29 @@ let nome = "Kauã";
 const objetivo = "criar um aplicativo monetizado";
 
 console.log(`Meu nome é ${nome},tenho o objetivo de ${objetivo} e sei que o esforço vence o talento.`);
+
+console.log("_______________________________");
+
+// ------------------------------------------------------------
+// EXERCÍCIO 6 – Menu
+// ------------------------------------------------------------
+// Utilizando apenas console.log(), reproduza o menu que esta na imagem "exemplo-menu-atividade-01-2" anexa junto a esta atividade
+
+// → Seu código aqui:
+
+console.log("==================================");
+console.log("      SISTEMA DO USUARIO");
+console.log("==================================");
+console.log("1 - Ver Perfil");
+console.log("2 - Editar Perfil");
+console.log("3 - Configurações");
+console.log("4 - Notificações");
+console.log("5 - Relatório");
+console.log("6 - Ajuda");
+console.log("7 - Sobre o Sistema");
+console.log("0 - Sair");
+console.log("==================================");
+console.log("Digite o número da opção desejada");
+console.log("==================================");
 
 console.log("_______________________________");
