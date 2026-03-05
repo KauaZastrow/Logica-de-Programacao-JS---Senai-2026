@@ -128,3 +128,29 @@ listaAlunos = [aluno, aluno1, aluno2];
 console.log(listaAlunos[1].nome);
 
 console.log("_______________________________");
+
+
+// ------------------------------------------------------------
+// EXERCÍCIO 7 – Objetos e Arrays
+// ------------------------------------------------------------
+// a) Crie um array "listaDeAlunos" que contenha 3 alunos. Cada aluno deve ser um objeto (não uma variável que contem um objeto).
+// b) Cada objeto aluno deve conter nome(string), idade(number) e notas(array de numbers).
+// c) Exiba o nome e as notas de cada aluno.
+
+
+// → Seu código aqui:
+
+//a)
+const listaDeAlunos = [
+    {Nome: "Kauã", Idade: 18, Notas: [10, 8, 9]},
+    {Nome: "Guilherme", Idade: 19, Notas: [8, 8, 9]},
+    {Nome: "Ana", Idade: 17, Notas: [10, 8, 7]}
+];
+//b)
+console.log(listaDeAlunos[0].Nome);
+//c)
+console.log(listaDeAlunos[0].Nome, listaDeAlunos[0].Notas);
+console.log(listaDeAlunos[1].Nome, listaDeAlunos[1].Notas);
+console.log(listaDeAlunos[2].Nome, listaDeAlunos[2].Notas);
+
+console.log("_______________________________");

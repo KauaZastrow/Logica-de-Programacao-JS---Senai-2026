@@ -66,9 +66,11 @@ const pessoa = { nome: 'Junin', idade: 22, cidade: 'Porto Alegre' };
 //a)
 console.log(pessoa.nome, pessoa.cidade);
 //b)
-pessoa.
+pessoa.curso = "Programação";
+console.log(pessoa);
 
 console.log("_______________________________");
+
 
 
 // ------------------------------------------------------------
@@ -84,6 +86,11 @@ const perfil = {
 
 // → Seu código aqui:
 
+//a)
+console.log(perfil.dados.nome, perfil.interesses);
+//b)
+perfil.interesses[0] = "arte";
+console.log(perfil.interesses[0])// estou verificando se funcionou sem erros
 
 console.log("_______________________________");
 
@@ -97,6 +104,19 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const produtos = [
+  {id: 10, nome: "Maçã", preço: 3.5},
+  {id: 20, nome: "Laranja", preço: 5.5},
+  {id: 30, nome: "Kiwi", preço: 4}
+];
+
+const catalogo = {
+  [produtos[0].id]: produtos[0].nome,// vai atribuir nome ao id
+  [produtos[1].id]: produtos[1].nome,
+  [produtos[2].id]: produtos[2].nome
+};
+console.log(catalogo[10]);//estou testando
+console.log(catalogo);
 
 console.log("_______________________________");
 
@@ -110,5 +130,17 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const tarefas = [
+  {id: 1, titulo: "Teste1", concluida: false},
+  {id: 2, titulo: "Teste2", concluida: false},
+  {id: 3, titulo: "Teste3", concluida: false}
+];
+
+//a)
+tarefas[1].concluida = true;
+console.log(tarefas)
+//b)
+const tarefasIncompletas = [tarefas[0], tarefas[2]];
+console.log(tarefasIncompletas);
 
 console.log("_______________________________");
