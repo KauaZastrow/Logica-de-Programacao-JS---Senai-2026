@@ -258,6 +258,7 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+/*
 //a)
 let nomeAluno1 = lerTeclado.question("Digite seu nome: ");
 let nota1Aluno1 = lerTeclado.questionInt("Digite sua primeira nota: ");
@@ -309,11 +310,12 @@ let turma = [
 //d)
 console.table(turma);
 //e)
-
+console.log(nomeAluno2, nota1Aluno2);
 //f)
-
+console.log(nomeAluno3, nota2Aluno3);
 //g)
-
+console.log(nomeAluno1, nota3Aluno1);
+*/
 
 console.log("_______________________________");
 
@@ -326,7 +328,7 @@ console.log("_______________________________");
 //    - categoria (string)
 //    - preço (float)
 //    - quantidade em estoque (inteiro)
-//    - está disponível para venda? (sim/não, usando keyInYN())
+//    - está disponível para venda? (sim/não, usando keyInYN()
 // b) Crie um objeto 'produto' com todas essas propriedades.
 //    A propriedade de disponibilidade deve se chamar 'disponivel' e ser boolean (true/false).
 // c) Exiba o objeto completo com console.table().
@@ -335,14 +337,27 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+/*
 //a)
 
+let produtoNome = lerTeclado.question("Digite o nome do produto: ");
+let categoria = lerTeclado.question("Digite o categoria do produto: ");
+let precoProduto = lerTeclado.questionFloat("Digite o preço do produto: ");
+let quantidadeEstoque = lerTeclado.questionInt("Digite a quantidade de estoque do produto: ");
+let disponibilidade = lerTeclado.keyInYN("O produto está disponível para venda?: ");
 //b)
-
+const produto = {
+    nome: produtoNome,
+    categoria: categoria,
+    preco: precoProduto,
+    quantidadeEstoque: quantidadeEstoque,
+    disponivel: disponibilidade
+}
 //c)
-
+console.table(produto);
 //d)
-
+console.log(`|Produto: ${produtoNome}| Categoria: ${categoria}| Preço: ${precoProduto}| Quantidade: ${quantidadeEstoque}| Disponivel: ${disponibilidade}|`)
+*/
 
 console.log("_______________________________");
 
@@ -361,11 +376,24 @@ console.log("_______________________________");
 
 
 //a)
-
+const medicamento1 = {
+nome: nome = lerTeclado.question("Digite o nome do produto: "),
+preco: preco = lerTeclado.questionFloat("Digite o preço do produto: "),
+emEstoque: emEstoque = lerTeclado.keyInYN("O produto está em estoque?: ")
+}
+const medicamento2 = {
+    nome: nome = lerTeclado.question("Digite o nome do produto: "),
+    preco: preco = lerTeclado.questionFloat("Digite o preço do produto: "),
+    emEstoque: emEstoque = lerTeclado.keyInYN("O produto está em estoque?: ")
+    }
 //b)
 
+let estoqueFarmacia = [];
+estoqueFarmacia.push(medicamento1, medicamento2);
+
 //c)
-
+console.table(estoqueFarmacia);
 //d)
-
+console.log(estoqueFarmacia[1].nome, estoqueFarmacia[1].preco);
 //e)
+console.log(`Nome: ${estoqueFarmacia[0].nome}, ${estoqueFarmacia[0].emEstoque ? "esta" : "não esta"} em estoque`);
