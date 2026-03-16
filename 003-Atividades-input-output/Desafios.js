@@ -83,7 +83,11 @@ const pessoa1 =
 {
     nome: nome = lerTeclado.question("Digite o seu nome: "), 
     idade: idade = lerTeclado.questionInt("Digite o sua idade: "), 
-    endereco: endereco = lerTeclado.question("Digite o seu endereço: ")
+    endereco: {
+        rua: rua = lerTeclado.question("Digite sua rua: "),
+        cidade: cidade = lerTeclado.question("Digite o seu endereço: "),
+        estado: estado = lerTeclado.question("Digite o seu endereço: "),
+    }
 };
 
 const pessoa2 = 
@@ -99,7 +103,10 @@ let amigos = [
     pessoa2
 ];
 
-console.table(amigos)
+console.table(amigos);
+console.log(amigos[1].nome, amigos[1].idade);
+console.log(amigos[1].endereco);
+console.log(amigos[0].nome, amigos[1].idade);
 
 console.log("_______________________________");
 
