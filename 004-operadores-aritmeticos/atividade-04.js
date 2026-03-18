@@ -261,14 +261,18 @@ console.log("_______________________________");
 // ------------------------------------------------------------
 // EXERCÍCIO 9 – Valor total de listas
 // ------------------------------------------------------------
-// a) Dada uma lista de preços, calcule e exiba o total.
-let precos = [29.90, 49.99, 15.75, 99.90];
-let total = 29.90 + 49.99 + 15.75 + 99.;
-console.log(total);
-// b) Dada uma lista de notas, calcule e exiba a média.
-let notas = [7.5, 8.2, 6.5, 9.0];
-// c) Dada uma lista de idades, exiba a maior e a menor idade utilizando das funções Math().
-let idades = [15, 22, 30, 18, 25];
+// // a) Dada uma lista de preços, calcule e exiba o total.
+// let precos = [29.90, 49.99, 15.75, 99.90];
+// let totalPrecos = precos[0] + precos[1] + precos[2] + precos[3];
+// console.log(totalPrecos.toFixed(2));
+// // b) Dada uma lista de notas, calcule e exiba a média.
+// let notas = [7.5, 8.2, 6.5, 9.0];
+// let totalNotas = notas[0] + notas[1] + notas[2] + notas[3];
+// let media = totalNotas / 4;
+// console.log(media);
+// // c) Dada uma lista de idades, exiba a maior e a menor idade utilizando das funções Math().
+// let idades = [15, 22, 30, 18, 25];
+// console.log(Math.max(...idades), Math.min(...idades));
 
 // → Seu código aqui:
 
@@ -295,7 +299,21 @@ let turma = {
     }
 }
 // a) Sem alterar o objeto (utilize somente push), peça para o usuário 3 notas para cada aluno, indicando a quem pertencerá cada nota
+turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno1.nome}: `));
+turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno1.nome}: `));
+turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno1.nome}: `));
+
+turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno2.nome}: `));
+turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno2.nome}: `));
+turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno2.nome}: `));
+
+turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno3.nome}: `));
+turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno3.nome}: `));
+turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno3.nome}: `));
+
+console.table(turma); // só testando
 // b) Calcule a média de notas de cada aluno e exiba no console, indicando a quem pertence cada média
+
 // c) Exiba a média geral da turma
 // d) Exiba a nota mais alta e a mais baixa de cada aluno
 // e) Exiba a nota mais alta e a mais baixa da turma
