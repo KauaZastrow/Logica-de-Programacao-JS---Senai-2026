@@ -79,34 +79,34 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const pessoa1 = 
-{
-    nome: nome = lerTeclado.question("Digite o seu nome: "), 
-    idade: idade = lerTeclado.questionInt("Digite o sua idade: "), 
-    endereco: {
-        rua: rua = lerTeclado.question("Digite sua rua: "),
-        cidade: cidade = lerTeclado.question("Digite o seu endereço: "),
-        estado: estado = lerTeclado.question("Digite o seu endereço: "),
-    }
-};
+// const pessoa1 = 
+// {
+//     nome: nome = lerTeclado.question("Digite o seu nome: "), 
+//     idade: idade = lerTeclado.questionInt("Digite o sua idade: "), 
+//     endereco: {
+//         rua: rua = lerTeclado.question("Digite sua rua: "),
+//         cidade: cidade = lerTeclado.question("Digite o seu endereço: "),
+//         estado: estado = lerTeclado.question("Digite o seu endereço: "),
+//     }
+// };
 
-const pessoa2 = 
-{
-    nome: nome = lerTeclado.question("Digite o seu nome: "), 
-    idade: idade = lerTeclado.questionInt("Digite o sua idade: "), 
-    endereco: endereco = lerTeclado.question("Digite o seu endereço: ")
-};
+// const pessoa2 = 
+// {
+//     nome: nome = lerTeclado.question("Digite o seu nome: "), 
+//     idade: idade = lerTeclado.questionInt("Digite o sua idade: "), 
+//     endereco: endereco = lerTeclado.question("Digite o seu endereço: ")
+// };
 
 
-let amigos = [
-    pessoa1, 
-    pessoa2
-];
+// let amigos = [
+//     pessoa1, 
+//     pessoa2
+// ];
 
-console.table(amigos);
-console.log(amigos[1].nome, amigos[1].idade);
-console.log(amigos[1].endereco);
-console.log(amigos[0].nome, amigos[1].idade);
+// console.table(amigos);
+// console.log(amigos[1].nome, amigos[1].idade);
+// console.log(amigos[1].endereco);
+// console.log(amigos[0].nome, amigos[0].rua);
 
 console.log("_______________________________");
 
@@ -128,6 +128,41 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// // a) Informe ao usuário (com console.info) que ele vai montar um pedido.
+// console.info("vc vai montar um pedido")
+// // b) Exiba um menu (quanto mais estilizado melhor!) com as opções de entrada, prato principal, sobremesa e bebidas.
+// // const menu = {
+// //     entrada: ["Arroz", "Nhonha"],
+// //     pratoPrincipal: ["Nhonha Mexicana", "Amendoas Nhonianas"],
+// //     sobremesa: ["Nhonha doce", "Nhonha bolamesa"],
+// //     bebidas: ["Licor de nhonha", "Refri nhonhado"]
+// // }//exemplo
+// // b) Peça ao usuário que escolha:
+// //    - Uma entrada
+// //    - Um prato principal
+// //    - Uma sobremesa
+// //    - Duas bebidas (uma de cada vez)
+// let menu = {
+//     entrada: lerTeclado.question("Escolha uma entrada: "),
+//     pratoPrincipal: lerTeclado.question("Escolha o prato principal: "),
+//     sobremesa: lerTeclado.question("Escolha uma sobremesa: "),
+//     listaBebidas: [
+//         lerTeclado.question("Escolha a primeira bebida: "),
+//         lerTeclado.question("Escolha a segunda bebida: ")
+//     ]
+//   };
+// // c) Crie um objeto "pedido" com as propriedades: entrada, pratoPrincipal, sobremesa e listaBebidas.
+// let pedido = {menu}
+// // d) Exiba o pedido com console.table().
+// console.table(pedido)
+// // e) Exiba também no console a mensagem:
+// //    "Seu pedido: Entrada: <entrada>, Prato Principal: <pratoPrincipal>, Sobremesa: <sobremesa>, Bebida 1: <bebida1>, Bebida 2: <bebida2>. Bom apetite!"
+// console.log(`Seu pedido: 
+// Entrada: ${menu.entrada}, 
+// Prato Principal: ${menu.pratoPrincipal}, 
+// Sobremesa: ${menu.sobremesa}, 
+// Bebida 1: ${menu.listaBebidas[0]}, Bebida 2: ${menu.listaBebidas[1]}. 
+// Bom apetite!`);
 
 console.log("_______________________________");
 
@@ -144,6 +179,20 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// a) Peça ao usuário: apelido, jogo favorito e horas totais jogadas (aproximadas)
+// b) Pergunte se ele joga em time (sim/não).
+// c) Crie um objeto "perfil" com todas as propriedades:
+//    apelido, jogoFavorito, horasTotaisJogadas, jogaEmTime.
+// d) Exiba o perfil com console.table().
+// e) Use console.warn() para exibir: "Lembre-se que jogar não é problema, o problema é colocar o jogo como prioridade."
+// let perfil = {
+//     apelido: lerTeclado.question("Digite seu apelido: "),
+//     jogoFavorito: lerTeclado.question("Digite seu jogo favorito: "),
+//     horasTotaisJogadas: lerTeclado.questionFloat("Digite quantas horas vc tem jogando(aproximadas): "),
+//     jogaEmTime: lerTeclado.keyInYN("Vc joga em times?")
+// };
+// console.table(perfil);
+// console.warn("Lembre-se que jogar não é problema, o problema é colocar o jogo como prioridade.")
 
 console.log("_______________________________");
 
@@ -162,6 +211,33 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// a) Peça o nome e a cidade favorita de 3 pessoas diferentes.
+// b) Crie um objeto para cada pessoa com as propriedades: nome e cidadeFavorita.
 
+let pessoa1 = {
+    nome: lerTeclado.question("Qual seu nome?: "),
+    cidadeFavorita: lerTeclado.question("Escolha uma cidade favorita: ")
+};
+let pessoa2 = {
+    nome: lerTeclado.question("Qual seu nome?: "),
+    cidadeFavorita: lerTeclado.question("Escolha uma cidade favorita: ")
+};
+let pessoa3 = {
+    nome: lerTeclado.question("Qual seu nome?: "),
+    cidadeFavorita: lerTeclado.question("Escolha uma cidade favorita: ")
+};
+
+// c) Exiba um dos objetos com console.table().
+console.table(pessoa1);
+// d) Crie uma array "viajantes" com os 3 objetos.
+let viajantes = [pessoa1, pessoa2, pessoa3];
+// e) Exiba a array com console.table().
+console.table(viajantes)
+// f) Exiba com console.info() quantos viajantes estão na lista (use .length).
+console.info(viajantes.length)
+// g) Exiba com console.log() a cidade favorita do 2º viajante.
+console.log(viajantes[1].cidadeFavorita)
+// h) Exiba com console.log() o nome do 1º viajante.
+console.log(viajantes[0].nome)
 
 console.log("_______________________________");

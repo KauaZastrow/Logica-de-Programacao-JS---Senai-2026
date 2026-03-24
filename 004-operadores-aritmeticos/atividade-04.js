@@ -299,26 +299,58 @@ let turma = {
     }
 }
 // a) Sem alterar o objeto (utilize somente push), peça para o usuário 3 notas para cada aluno, indicando a quem pertencerá cada nota
-turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno1.nome}: `));
-turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno1.nome}: `));
-turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno1.nome}: `));
-
-turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno2.nome}: `));
-turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno2.nome}: `));
-turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno2.nome}: `));
-
-turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno3.nome}: `));
-turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno3.nome}: `));
-turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno3.nome}: `));
-
-console.table(turma); // só testando
 // b) Calcule a média de notas de cada aluno e exiba no console, indicando a quem pertence cada média
-
-// c) Exiba a média geral da turma
 // d) Exiba a nota mais alta e a mais baixa de cada aluno
 // e) Exiba a nota mais alta e a mais baixa da turma
 
 // → Seu código aqui:
 
+// // a) Sem alterar o objeto (utilize somente push), peça para o usuário 3 notas para cada aluno, indicando a quem pertencerá cada nota
+// turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno1.nome}: `));
+// turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno1.nome}: `));
+// turma.aluno1.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno1.nome}: `));
+
+// turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno2.nome}: `));
+// turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno2.nome}: `));
+// turma.aluno2.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno2.nome}: `));
+
+// turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a primeira nota de ${turma.aluno3.nome}: `));
+// turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a segunda nota de ${turma.aluno3.nome}: `));
+// turma.aluno3.notas.push(lerTeclado.questionFloat(`Digite a terceira nota de ${turma.aluno3.nome}: `));
+
+// console.table(turma); // só testando
+// // b) Calcule a média de notas de cada aluno e exiba no console, indicando a quem pertence cada média
+// console.log(`Média de ${turma.aluno1.nome}: ${(turma.aluno1.notas[0] + turma.aluno1.notas[1] + turma.aluno1.notas[2]) / 3}`);
+// console.log(`Média de ${turma.aluno2.nome}: ${(turma.aluno2.notas[0] + turma.aluno2.notas[1] +turma.aluno2.notas[2]) / 3}`);
+// console.log(`Média de ${turma.aluno3.nome}: ${(turma.aluno3.notas[0] + turma.aluno3.notas[1] + turma.aluno3.notas[2]) / 3}`);
+// // c) Exiba a média geral da turma
+// let media1 = (turma.aluno1.notas[0] + turma.aluno1.notas[1] + turma.aluno1.notas[2]) / 3;
+// let media2 = (turma.aluno2.notas[0] + turma.aluno2.notas[1] +turma.aluno2.notas[2]) / 3;
+// let media3 = (turma.aluno3.notas[0] + turma.aluno3.notas[1] + turma.aluno3.notas[2]) / 3;
+// console.log(`
+//     Média geral da turma: ${(media1 + media2 + media3) / 3}
+// `)
+// // d) Exiba a nota mais alta e a mais baixa de cada aluno
+// console.log(`
+//     ${turma.aluno1.nome}.
+//     Nota mais alta: ${Math.max(turma.aluno1.notas[0], turma.aluno1.notas[1], turma.aluno1.notas[2])}.
+//     Nota mais baixa: ${Math.min(turma.aluno1.notas[0], turma.aluno1.notas[1], turma.aluno1.notas[2])}.
+// `);
+// console.log(`
+//     ${turma.aluno2.nome}.
+//     Nota mais alta: ${Math.max(turma.aluno2.notas[0], turma.aluno2.notas[1], turma.aluno2.notas[2])}.
+//     Nota mais baixa: ${Math.min(turma.aluno2.notas[0], turma.aluno2.notas[1], turma.aluno2.notas[2])}.
+// `);
+// console.log(`
+//     ${turma.aluno3.nome}.
+//     Nota mais alta: ${Math.max(turma.aluno3.notas[0], turma.aluno3.notas[1], turma.aluno3.notas[2])}.
+//     Nota mais baixa: ${Math.min(turma.aluno3.notas[0], turma.aluno3.notas[1], turma.aluno3.notas[2])}.
+// `);
+// // e) Exiba a nota mais alta e a mais baixa da turma
+// console.log(`
+//     Turma.
+//     Nota mais alta: ${Math.max(turma.aluno2.notas[0], turma.aluno2.notas[1], turma.aluno2.notas[2], turma.aluno2.notas[0], turma.aluno2.notas[1], turma.aluno2.notas[2], turma.aluno3.notas[0], turma.aluno3.notas[1], turma.aluno3.notas[2])}.
+//     Nota mais baixa: ${Math.min(turma.aluno2.notas[0], turma.aluno2.notas[1], turma.aluno2.notas[2], turma.aluno2.notas[0], turma.aluno2.notas[1], turma.aluno2.notas[2], turma.aluno3.notas[0], turma.aluno3.notas[1], turma.aluno3.notas[2])}.
+// `);
 
 console.log("_______________________________");
