@@ -163,22 +163,22 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-const usuario = {
-    nome: lerTeclado.question("Seu nome:"),
-    possuiIngresso: lerTeclado.keyInYN("Tem ingresso?"),
-    idade: lerTeclado.questionInt("Sua idade:")
-}
+// let usuario = {
+//     nome: lerTeclado.question("Seu nome:"),
+//     possuiIngresso: lerTeclado.keyInYN("Tem ingresso?"),
+//     idade: lerTeclado.questionInt("Sua idade:")
+// }
 
-if (!possuiIngresso) {
-    console.log(`${usuario.nome}, dirija-se à bilheteria.`)
-    } else if (usuario.idade < 18){
-        console.log("Meia-entrada: menor de idade.")
-    } else if (usuario.idade >= 60){
-        console.log("Meia-entrada: melhor idade.")
-    } else {
-        console.log("Entrada inteira.")
-    }
-}
+// if (!usuario.possuiIngresso) {
+//     console.log(`${usuario.nome}, dirija-se à bilheteria.`)
+//     } else if (usuario.idade < 18){
+//         console.log("Meia-entrada: menor de idade.")
+//     } else if (usuario.idade >= 60){
+//         console.log("Meia-entrada: melhor idade.")
+//     } else {
+//         console.log("Entrada inteira.")
+//     }
+
 
 console.log("_______________________________");
 
@@ -197,6 +197,17 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// let motorista = {
+//     nome: lerTeclado.question("Seu nome: "),
+//     idade: lerTeclado.questionInt("Sua idade: "),
+//     possuiHabilitação: lerTeclado.keyInYN("Tem habilitação?")
+// }
+
+// if (motorista.idade >= 21 && motorista.possuiHabilitação){
+//     console.log(`${motorista.nome}, você pode alugar o veículo.`)
+// } else {
+//     console.log(`${motorista.nome}, você não atende aos requisitos.`)
+// }
 
 console.log("_______________________________");
 
@@ -212,6 +223,14 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// let estudante = lerTeclado.keyInYN("vc é estudante? ");
+// let idoso = lerTeclado.keyInYN("vc é idoso? ");
+
+// if (idoso || estudante){
+//     console.log("Desconto de 50% aplicado!")
+// } else {
+//     console.log("Sem desconto. Preço cheio.")
+// }
 
 console.log("_______________________________");
 
@@ -234,6 +253,32 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// let aluno = {
+//     nome: lerTeclado.question("Nome do aluno: "),
+//     notaProva1: lerTeclado.questionFloat("Nota da prova 1: "),
+//     notaProva2: lerTeclado.questionFloat("Nota da prova 2: "),
+// }
+
+// aluno.media = (aluno.notaProva1 + aluno.notaProva2) / 2
+
+// if (aluno.media >= 7){
+//     aluno.situacao = "Aprovado"
+//     console.log(aluno.situacao)
+
+// } else if (aluno.media >= 5){
+//     aluno.situacao = "Em recuperação"
+//     console.log(aluno.situacao)
+// } else {
+//     aluno.situacao = "Reprovado"
+//     console.log(aluno.situacao)
+// }
+
+// console.table(aluno);
+// console.log(`
+//     ${aluno.nome}: 
+//     Situação: ${aluno.situacao}. 
+//     média: ${aluno.media}
+// `)
 
 console.log("_______________________________");
 
@@ -257,5 +302,28 @@ console.log("_______________________________");
 // g) Chame o professor para realizar alguns testes 🫡
 
 // → Seu código aqui:
+
+// let a = lerTeclado.questionFloat("escolhe um numero: ");
+// let b = lerTeclado.questionFloat("escolhe outro numero: ");
+// let d;
+// const c = lerTeclado.questionInt("Escolha uma operação digitando um número: 1 – Soma | 2 – Subtração | 3 – Multiplicação | 4 – Divisão");
+
+// if (c === 1){
+//     d = a + b
+//     console.log(`${a} + ${b} = ${d}`)
+// } else if (c === 2){
+//     d = a - b
+//     console.log(`${a} - ${b} = ${d}`)
+// } else if (c === 3){
+//     d = a * b
+//     console.log(`${a} * ${b} = ${d}`)
+// } else if (c === 4){
+//     d = a / b
+//     console.log(`${a} / ${b} = ${d}`)
+// } else {
+//     console.log("Você digitou errado!")
+// }
+
+
 
 console.log("_______________________________");

@@ -272,27 +272,20 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-// a) Peça ao usuário e armazene os dados em um objeto:
-//    - Sua idade (questionInt()).
-//    - Se possui ingresso (keyInYN()).
-//    - Se é associado ao clube (keyInYN()).
-let usuario = {
-    idade: lerTeclado.questionInt("Digite sua idade: "),
-    possuiIngresso: lerTeclado.keyInYN("Possui ingresso?: "),
-    associado: lerTeclado.keyInYN("você é associado?: ")
-};
-// b) Armazene e exiba os resultados das seguintes verificações em outro objeto:
-//    - "podeEntrarNormal": (idade maior ou igual a 18 e possuiIngresso) ou ehAssociado
-//    - "podeEntrarSocio": possuiIngresso e ehAssociado
-//    - "precisaAcompanhante": idade menor que 18
-//    - "naoPodeEntrar": não possuiIngresso e não ehAssociado
-let verificacoes = {
-    podeEntrarNormal: usuario.idade >= 18 && usuario.possuiIngresso ? "Pode entrar normal" : "Não pode entrar",
+// let usuario = {
+//     idade: lerTeclado.questionInt("Digite sua idade: "),
+//     possuiIngresso: lerTeclado.keyInYN("Possui ingresso?: "),
+//     associado: lerTeclado.keyInYN("você é associado?: ")
+// };
 
-}
-// c) Exiba a mensagem final usando ternário:
-//    Se podeEntrarNormal ou podeEntrarSocio → "Entrada liberada!"
-//    Caso contrário → "Entrada negada."
+// let verificacoes = {
+//     podeEntrarNormal: usuario.idade >= 18 && usuario.possuiIngresso ? "Pode entrar normal" : "Não pode entrar",
+//     podeEntrarSocio: usuario.associado && usuario.possuiIngresso ? "Pode entrar socio" : "Não pode entrar",
+//     precisaAcompanhante: usuario.idade < 18 && usuario.possuiIngresso ? "Precisa de acompanhante" : "Não pode entrar",
+//     naoPodeEntrar: usuario.associado === false  || usuario.possuiIngresso === false ? "Não pode entrar" : "Pode entrar"
+// }
+
+// console.log(`Você ${verificacoes.podeEntrarNormal || verificacoes.podeEntrarSocio || verificacoes.precisaAcompanhante ? "Entrada liberada!" : "Entrada negada."}`)
 
 console.log("_______________________________");
 
@@ -313,6 +306,20 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// let produto = {
+//     nome: lerTeclado.question("nome do produto: "),
+//     quantidadeEstoque: lerTeclado.questionInt("quantidade do produto: "),
+//     ativo: lerTeclado.keyInYN("o produto está ativo no sistema?")
+// }
+
+// produto.temEstoque = produto.quantidadeEstoque > 0 ? true : false;
+// produto.produtoDisponivel = produto.temEstoque && produto.ativo ? true : false;
+// produto.produtoIndisponivel = produto.temEstoque === false || produto.ativo === false ? true : false;
+// console.log(`
+//     Tem estoque: ${produto.temEstoque}
+//     produto disponivel: ${produto.produtoDisponivel}
+//     produto indisponivel ${produto.produtoIndisponivel}
+// `)
 
 console.log("_______________________________");
 
@@ -333,6 +340,21 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// let usuario = {
+//     ehAdmin: lerTeclado.keyInYN("vc é admin?"),
+//     logado: lerTeclado.keyInYN("vc é esta logado?"),
+//     contaAtiva: lerTeclado.keyInYN("sua conta esta ativa?")
+// }
+
+// usuario.acessoSistema = usuario.logado && usuario.contaAtiva ? true : false;
+// usuario.acessoAdmin = usuario.logado && usuario.ehAdmin ? true : false;
+// usuario.acessoNegado = usuario.logado === false && usuario.ehAdmin === false ? true : false;
+
+// console.log(`
+//     acessoSistema: ${usuario.acessoSistema}
+//     acessoAdmin: ${usuario.acessoAdmin}
+//     acessoNegado ${usuario.acessoNegado}
+// `)
 
 console.log("_______________________________");
 
@@ -356,5 +378,17 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let credenciaisSistema = {
+    usuario: "admin",
+    senha: "1234",
+}
+
+credenciaisSistema.loginValido = credenciaisSistema.usuario && credenciaisSistema.senha ? "Login realizado com sucesso!" : "Usuário ou senha incorretos."
+
+console.log(`
+    usuario: ${credenciaisSistema.usuario = lerTeclado.question("digite seu usuario: ") === "admin" ? "Usuario Correto" : "Usuario incorreto"}
+    senha: ${credenciaisSistema.senha = lerTeclado.question("digite sua senha: ") === 1234 ? "Senha Correta" : "Senha incorreta"}
+    ${credenciaisSistema.loginValido}
+`)
 
 console.log("_______________________________");
