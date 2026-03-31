@@ -26,6 +26,12 @@ let lerTeclado = require('readline-sync');
 
 // → Seu código aqui:
 
+let pessoa = {
+    nome: lerTeclado.question("Qual seu nome?: "),
+    peso: lerTeclado.question("Qual seu peso?: "),
+    altura: lerTeclado.question("Qual sua altura?: ")
+}
+
 // let pessoa = {
 //     nome: lerTeclado.question("seu nome: "),
 //     peso: lerTeclado.questionFloat("seu peso (Kg): "),
