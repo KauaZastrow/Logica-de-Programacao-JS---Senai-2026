@@ -27,87 +27,6 @@ let lerTeclado = require('readline-sync');
 //    - Nome pessoal.
 //    - Número do prato desejado.
 //    - Número da bebida desejada.
-
-const cardapio = {
-    pratos: [
-        { numero: 1, nomePrato: "Frango Grelhado", preco: 32.00 },
-        { numero: 2, nomePrato: "Filé ao Molho", preco: 45.00 },
-        { numero: 3, nomePrato: "Massa Italiana", preco: 28.00 },
-        { numero: 4, nomePrato: "Salada Caesar", preco: 22.00 },
-        { numero: 5, nomePrato: "Sopa do Dia", preco: 18.00 }
-    ],
-    bebidas: [
-        { numero: 1, nomeBebida: "Suco Natural", preco: 9.00 },
-        { numero: 2, nomeBebida: "Refrigerante", preco: 7.00 },
-        { numero: 3, nomeBebida: "Água", preco: 4.00 },
-        { numero: 4, nomeBebida: "Sem bebida", preco: 0.00 }
-    ]
-}
-
-let pedido = {
-    nomeCliente: lerTeclado.question("Qual seu nome?: ")
-}
-console.table(cardapio.pratos);
-pedido.numeroPrato = lerTeclado.questionInt("Qual o numero do prato desejado?:");
-console.table(cardapio.bebidas);
-pedido.numeroBebida = lerTeclado.questionInt("Qual o numero da bebida desejada?:");
-
-switch (pedido.numeroPrato) {
-    case 1:
-        pedido.nomePrato = cardapio.pratos[0].nomePrato;
-        pedido.precoPrato += cardapio.pratos[0].preco;
-        break;
-    case 2:
-        pedido.nomePrato = cardapio.pratos[1].nomePrato;
-        pedido.precoPrato += cardapio.pratos[1].preco;
-        break;
-    case 3:
-        pedido.nomePrato = cardapio.pratos[2].nomePrato;
-        pedido.precoPrato += cardapio.pratos[2].preco;
-        break;
-    case 4:
-        pedido.nomePrato = cardapio.pratos[3].nomePrato;
-        pedido.precoPrato += cardapio.pratos[3].preco;
-        break;
-    case 5:
-        pedido.nomePrato = cardapio.pratos[4].nomePrato;
-        pedido.precoPrato += cardapio.pratos[4].preco;
-        break;
-    default:
-        console.log("Item inválido.(Prato)")
-        pedido.precoPrato += 0;
-}
-
-switch (pedido.numeroBebida) {
-    case 1:
-        pedido.nomeBebida = cardapio.bebidas[0].nomeBebida;
-        pedido.precoBebida += cardapio.bebidas[0].preco;
-        break;
-    case 2:
-        pedido.nomeBebida = cardapio.bebidas[1].nomeBebida;
-        pedido.precoBebida += cardapio.bebidas[1].preco;
-        break;
-    case 3:
-        pedido.nomeBebida = cardapio.bebidas[2].nomeBebida;
-        pedido.precoBebida += cardapio.bebidas[2].preco;
-        break;
-    case 4:
-        pedido.nomeBebida = cardapio.bebidas[3].nomeBebida;
-        pedido.precoBebida += cardapio.bebidas[3].preco;
-        break;
-    default:
-        console.log("Item inválido.(Bebida)")
-        pedido.precoBebida += 0;
-}
-pedido.total = pedido.precoPrato + pedido.precoBebida;
-let pix = lerTeclado.keyInYN("vai pagar no pix?")
-if (pix) {
-    pedido.total *= 0.9;
-    console.log(`Desconto de 10% aplicado. Novo valor: ${pedido.total}`)
-} else {
-    console.log("Sem desconto")
-}
-console.table(pedido)
 // b) Com switch/case, determine o prato e o preço do prato,
 //    e outro switch para a bebida e seu preço.
 //    Para opções inválidas, exiba "Item inválido." e use preço 0.
@@ -121,6 +40,85 @@ console.table(pedido)
 
 // → Seu código aqui:
 
+// const cardapio = {
+//     pratos: [
+//         { numero: 1, nomePrato: "Frango Grelhado", preco: 32.00 },
+//         { numero: 2, nomePrato: "Filé ao Molho", preco: 45.00 },
+//         { numero: 3, nomePrato: "Massa Italiana", preco: 28.00 },
+//         { numero: 4, nomePrato: "Salada Caesar", preco: 22.00 },
+//         { numero: 5, nomePrato: "Sopa do Dia", preco: 18.00 }
+//     ],
+//     bebidas: [
+//         { numero: 1, nomeBebida: "Suco Natural", preco: 9.00 },
+//         { numero: 2, nomeBebida: "Refrigerante", preco: 7.00 },
+//         { numero: 3, nomeBebida: "Água", preco: 4.00 },
+//         { numero: 4, nomeBebida: "Sem bebida", preco: 0.00 }
+//     ]
+// }
+
+// let pedido = {
+//     nomeCliente: lerTeclado.question("Qual seu nome?: "),
+//     precoPrato: 0,
+//     precoBebida: 0,
+//     total: 0,
+//     totalDesconto: 0
+// }
+// console.table(cardapio.pratos);
+// pedido.numeroPrato = lerTeclado.questionInt("Qual o numero do prato desejado?:");
+// console.table(cardapio.bebidas);
+// pedido.numeroBebida = lerTeclado.questionInt("Qual o numero da bebida desejada?:");
+
+// switch (pedido.numeroPrato) {
+//     case 1:
+//     case 2:
+//     case 3:
+//     case 4:
+//     case 5:
+//         pedido.nomePrato = cardapio.pratos[pedido.numeroPrato - 1].nomePrato;
+//         pedido.precoPrato += cardapio.pratos[pedido.numeroPrato - 1].preco;
+//         break;
+//     default:
+//         console.log("Item inválido.(Prato)")
+// }
+
+// switch (pedido.numeroBebida) {
+//     case 1:
+//     case 2:
+//     case 3:
+//     case 4:
+//         pedido.nomeBebida = cardapio.bebidas[pedido.numeroBebida - 1].nomeBebida;
+//         pedido.precoBebida += cardapio.bebidas[pedido.numeroBebida - 1].preco;
+//         break;
+//     default:
+//         console.log("Item inválido.(Bebida)")
+// }
+// pedido.totalDesconto = pedido.precoPrato + pedido.precoBebida;
+// pedido.total = pedido.precoPrato + pedido.precoBebida;
+// let pix = lerTeclado.keyInYN("vai pagar no pix?")
+// if (pix) {
+//     pedido.totalDesconto *= 0.9;
+//     console.log(`Desconto de 10% aplicado. Novo valor: ${pedido.totalDesconto}`)
+// } else {
+//     console.log("Sem desconto")
+// }
+// console.table(pedido)
+// if (pix) {
+//     console.log(`
+// ${pedido.nomeCliente}
+// Seu pedido foi:
+// ${pedido.nomePrato}: R$ ${pedido.precoPrato}
+// ${pedido.nomeBebida}: R$ ${pedido.precoBebida}
+// Total com desconto de 10%: R$ ${pedido.totalDesconto}
+// `)
+// } else {
+//     console.log(`
+// ${pedido.nomeCliente}
+// Seu pedido foi:
+// ${pedido.nomePrato}: R$ ${pedido.precoPrato}
+// ${pedido.nomeBebida}: R$ ${pedido.precoBebida}
+// Total: R$ ${pedido.total}
+// `)
+// }
 
 console.log("_______________________________");
 
@@ -152,7 +150,51 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+console.log(`
+  1 - Km → Milhas
+  2 - Milhas → Km
+  3 - Celsius → Fahrenheit
+  4 - Fahrenheit → Celsius
+  5 - Kg → Libras
+  6 - Libras → Kg
+`)
+const unidades = ["Km", "Milhas", "Celsius", "Fahrenheit", "Kg", "Libras"]
+const Conversor = {
+    tipo: lerTeclado.questionInt("Escolha o tipo de conversão"),
+    valorOriginal: lerTeclado.questionInt("Escolha um numero para converter"),
+    unidadeOriginal: unidades[tipo - 1],
+    unidadeResultado: null,
+    resultado: null
+}
 
+switch (Conversor.tipo){
+    case 1:
+    conversor.valorOriginal = conversor.valorOriginal * 0.621371;
+    conversor.unidadeResultado = unidades[1];
+    break;
+    case 2:
+    conversor.valorOriginal = conversor.valorOriginal * 1.60934;
+    conversor.unidadeResultado = unidades[0];
+    break;
+    case 3:
+    conversor.valorOriginal = (conversor.valorOriginal * 9/5) + 32;
+    conversor.unidadeResultado = unidades[3];
+    break;
+    case 4:
+    conversor.valorOriginal = (conversor.valorOriginal - 32) * 5/9;
+    conversor.unidadeResultado = unidades[2];
+    break;
+    case 5:
+    conversor.valorOriginal = conversor.valorOriginal * 2.20462;
+    conversor.unidadeResultado = unidades[5];
+    break;
+    case 6:
+    conversor.valorOriginal = conversor.valorOriginal / 2.20462;
+    conversor.unidadeResultado = unidades[4];
+    break;
+    default:
+    console.log("Tipo de conversão inválido.");
+}
 console.log("_______________________________");
 
 
