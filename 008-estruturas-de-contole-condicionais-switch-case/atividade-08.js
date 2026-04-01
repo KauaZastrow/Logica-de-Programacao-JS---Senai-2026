@@ -50,7 +50,6 @@ let lerTeclado = require('readline-sync');
 
 console.log("_______________________________");
 
-
 // ------------------------------------------------------------
 // EXERCÍCIO 2 – Switch com string
 // ------------------------------------------------------------
@@ -66,23 +65,22 @@ console.log("_______________________________");
 
 // const direcao = "norte";
 // switch (direcao) {
-//     case ("norte"):
+//     case "norte":
 //         console.log("Seguindo para o Norte ↑");
 //         break
-//     case ("sul"):
+//     case "sul":
 //         console.log("Seguindo para o Sul ↓");
 //         break
-//     case ("leste"):
+//     case "leste":
 //         console.log("Seguindo para o Leste →");
 //         break
-//     case ("oeste"):
+//     case "oeste":
 //         console.log("Seguindo para o Oeste ←");
 //     default:
 //         console.log("Direção desconhecida.");
 // }
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 3 – Fall-through(cascata) intencional
@@ -119,7 +117,6 @@ console.log("_______________________________");
 
 console.log("_______________________________");
 
-
 // ------------------------------------------------------------
 // EXERCÍCIO 4 – Switch com input (número)
 // ------------------------------------------------------------
@@ -140,18 +137,17 @@ console.log("_______________________________");
 // : `);
 
 // switch (a) {
-//     case (1): console.log("Bom dia! Turno da manhã.");
+//     case 1: console.log("Bom dia! Turno da manhã.");
 //         break
-//     case (2): console.log("Boa tarde! Turno da tarde.");
+//     case 2: console.log("Boa tarde! Turno da tarde.");
 //         break
-//     case (3): console.log("Boa noite! Turno da noite.");
+//     case 3: console.log("Boa noite! Turno da noite.");
 //         break
 //     default:
 //         console.log("Opção inválida.")
 // }
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 5 – Switch com input (string)
@@ -186,7 +182,6 @@ console.log("_______________________________");
 
 console.log("_______________________________");
 
-
 // ------------------------------------------------------------
 // EXERCÍCIO 6 – Dias da semana com fall-through
 // ------------------------------------------------------------
@@ -216,7 +211,6 @@ console.log("_______________________________");
 // }
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 7 – Switch com objeto
@@ -269,7 +263,6 @@ console.log("_______________________________");
 
 console.log("_______________________________");
 
-
 // ------------------------------------------------------------
 // EXERCÍCIO 8 – Conversor de nota para conceito e cor
 // ------------------------------------------------------------
@@ -287,13 +280,44 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-let usuario = {
-    nome: lerTeclado.question("nome: "),
-    nota: lerTeclado.questionInt("nota de 0 a 10: ")
-}
+// let usuario = {
+//     nome: lerTeclado.question("nome: "),
+//     nota: lerTeclado.questionInt("nota de 0 a 10: ")
+// };
 
-console.log("_______________________________");
+// switch (usuario.nota) {
+//     case 10:
+//     case 9:
+//         usuario.conceito = "A";
+//         usuario.mensagem = "Excelente!";
+//         break;
+//     case 8:
+//     case 7:
+//         usuario.conceito = "B";
+//         usuario.mensagem = "Muito bom!";
+//         break;
+//     case 6:
+//     case 5:
+//         usuario.conceito = "C";
+//         usuario.mensagem = "Suficiente.";
+//         break;
+//     case 4:
+//     case 3:
+//         usuario.conceito = "D";
+//         usuario.mensagem = "Em recuperação.";
+//         break;
+//     case 2:
+//     case 1:
+//     case 0:
+//         usuario.conceito = "F";
+//         usuario.mensagem = "Reprovado.";
+//         break;
+//     default:
+//         console.log("Nota inválida.");
+// };
+// console.log(`${usuario.nome} – Nota: ${usuario.nota} | Conceito: ${usuario.conceito} | ${usuario.mensagem}`);
 
+// console.log("_______________________________");
 
 // ------------------------------------------------------------
 // EXERCÍCIO 9 – Calculadora com switch
@@ -310,9 +334,42 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// const calculadora = {
+//     numeroA: lerTeclado.questionInt("Digite um numero: "),
+//     numeroB: lerTeclado.questionInt("Digite outro numero: "),
+
+//     operacao: lerTeclado.questionInt(`
+// --------------------------Menu de operações---------------------------
+// 1 - Soma | 2 - Subtração | 3 - Multiplicação | 4 - Divisão | 5 - Resto
+// ----------------------------------------------------------------------
+
+// Escolha uma das opções: `)
+// }
+// switch (calculadora.operacao) {
+//     case 1:
+//         console.log(`${calculadora.numeroA} + ${calculadora.numeroB} = ${calculadora.numeroA + calculadora.numeroB}`);
+//         break;
+//     case 2:
+//         console.log(`${calculadora.numeroA} - ${calculadora.numeroB} = ${calculadora.numeroA - calculadora.numeroB}`);
+//         break;
+//     case 3:
+//         console.log(`${calculadora.numeroA} * ${calculadora.numeroB} = ${calculadora.numeroA * calculadora.numeroB}`);
+//         break;
+//     case 4:
+//         if (!calculadora.numeroB) {
+//             console.log("Erro: divisão por zero não é permitida.")
+//         } else {
+//             console.log(`${calculadora.numeroA} / ${calculadora.numeroB} = ${calculadora.numeroA / calculadora.numeroB}`);
+//         }
+//         break;
+//     case 5:
+//         console.log(`${calculadora.numeroA} % ${calculadora.numeroB} = ${calculadora.numeroA % calculadora.numeroB}`);
+//         break
+//     default:
+//         console.log("Operação inválida.")
+// }
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 10 – Menu de loja completo
@@ -333,5 +390,36 @@ console.log("_______________________________");
 //    - default → exiba: "Opção inválida."
 
 // → Seu código aqui:
+
+// const loja = {
+//     nome: "TechShop",
+//     saldo: 0,
+//     menu: lerTeclado.questionInt(`
+// -----------------------------Menu-----------------------------
+//  1 - Ver produtos | 2 - Comprar | 3 - Ver carrinho | 4 - Sair
+// --------------------------------------------------------------
+
+// Escolha uma das opções: `),
+// }
+// loja.produtos = [{ produto: "Mouse", preco: 89.90 }, { produto: "Teclado", preco: 119.99 }, { produto: "Fone", preco: 44.90 }];
+// switch (loja.menu) {
+//     case 1:
+//         console.table(loja.produtos);
+//         break;
+//     case 2:
+//         let produtoNome = lerTeclado.question("Qual produto?: ");
+//         let produtoPreco = lerTeclado.questionFloat("Qual o preço dele?: ");
+//         loja.saldo += produtoPreco;
+//         console.log("Produto adicionado ao carrinho.");
+//         break;
+//     case 3:
+//         console.log(`Total no carrinho: R$ ${loja.saldo}`);
+//         break;
+//     case 4:
+//         console.log("Obrigado por visitar a TechShop!");
+//         break;
+//     default:
+//         console.log("Opção inválida.");
+// }
 
 console.log("_______________________________");
