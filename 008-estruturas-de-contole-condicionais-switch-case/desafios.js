@@ -159,41 +159,40 @@ console.log(`
   6 - Libras → Kg
 `)
 const unidades = ["Km", "Milhas", "Celsius", "Fahrenheit", "Kg", "Libras"]
-const Conversor = {
-    tipo: lerTeclado.questionInt("Escolha o tipo de conversão"),
-    valorOriginal: lerTeclado.questionInt("Escolha um numero para converter"),
-    unidadeOriginal: unidades[tipo - 1],
+let conversor = {
+    tipo: lerTeclado.questionInt("Escolha o tipo de conversão: "),
+    valorOriginal: lerTeclado.questionInt("Escolha um numero para converter: "),
+    unidadeOriginal: unidades[conversor.tipo - 1],
     unidadeResultado: null,
     resultado: null
 }
-
-switch (Conversor.tipo){
+switch (conversor.tipo) {
     case 1:
-    conversor.valorOriginal = conversor.valorOriginal * 0.621371;
-    conversor.unidadeResultado = unidades[1];
-    break;
+        conversor.resultado = conversor.valorOriginal * 0.621371;
+        conversor.unidadeResultado = unidades[1];
+        break;
     case 2:
-    conversor.valorOriginal = conversor.valorOriginal * 1.60934;
-    conversor.unidadeResultado = unidades[0];
-    break;
+        conversor.resultado = conversor.valorOriginal * 1.60934;
+        conversor.unidadeResultado = unidades[0];
+        break;
     case 3:
-    conversor.valorOriginal = (conversor.valorOriginal * 9/5) + 32;
-    conversor.unidadeResultado = unidades[3];
-    break;
+        conversor.resultado = (conversor.valorOriginal * 9 / 5) + 32;
+        conversor.unidadeResultado = unidades[3];
+        break;
     case 4:
-    conversor.valorOriginal = (conversor.valorOriginal - 32) * 5/9;
-    conversor.unidadeResultado = unidades[2];
-    break;
+        conversor.resultado = (conversor.valorOriginal - 32) * 5 / 9;
+        conversor.unidadeResultado = unidades[2];
+        break;
     case 5:
-    conversor.valorOriginal = conversor.valorOriginal * 2.20462;
-    conversor.unidadeResultado = unidades[5];
-    break;
+        conversor.resultado = conversor.valorOriginal * 2.20462;
+        conversor.unidadeResultado = unidades[5];
+        break;
     case 6:
-    conversor.valorOriginal = conversor.valorOriginal / 2.20462;
-    conversor.unidadeResultado = unidades[4];
-    break;
+        conversor.resultado = conversor.valorOriginal / 2.20462;
+        conversor.unidadeResultado = unidades[4];
+        break;
     default:
-    console.log("Tipo de conversão inválido.");
+        console.log("Tipo de conversão inválido.");
 }
 console.log("_______________________________");
 
