@@ -194,6 +194,7 @@ switch (conversor.tipo) {
     default:
         console.log("Tipo de conversão inválido.");
 }
+console.table(conversor)
 console.log("_______________________________");
 
 

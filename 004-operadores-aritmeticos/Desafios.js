@@ -11,8 +11,7 @@
 //
 // Dica: Ao terminar um exercício, comente-o. Assim os dados não serão solicitados novamente.
 // ============================================================
-
-
+const lerTeclado = require("readline-sync")
 // ------------------------------------------------------------
 // DESAFIO 1 – Carrinho de compras
 // ------------------------------------------------------------
@@ -35,7 +34,30 @@
 // Valor médio dos produtos: X"
 
 // → Seu código aqui:
-
+// let prod1 = {
+//     nome: lerTeclado.question("digite o nome de um produto: "),//nome do produto 1
+//     preco: lerTeclado.questionFloat("digite o preço do produto: ") //preço do produto 1
+// }
+// let prod2 = {
+//     nome: lerTeclado.question("digite o nome de mais um produto: "),
+//     preco: lerTeclado.questionFloat("digite o preço do produto: ")
+// }
+// let prod3 = {
+//     nome: lerTeclado.question("digite o nome de só mais um produto: "),
+//     preco: lerTeclado.questionFloat("digite o preço do produto: ")
+// }
+// let precos = [prod1.preco, prod2.preco, prod3.preco];// caso tenha que add um objeto, assim o calculo com reduce continua funcionando
+// let carrinho = { // carrinho com os produtos
+//     produtos: [prod1, prod2, prod3],
+// }
+// carrinho.valorTotal = precos.reduce((a, b) => a + b, 0)
+// carrinho.valorMedio = carrinho.valorTotal / precos.length
+// console.table(carrinho)
+// console.log(`
+//     O carrinho possui ${carrinho.produtos.length} produtos.
+//     Valor total: ${carrinho.valorTotal}.
+//     Valor medio: ${carrinho.valorMedio}.
+//     `)
 
 console.log("_______________________________");
 
@@ -66,8 +88,26 @@ console.log("_______________________________");
 // "Dinheiro restante: X"
 
 // → Seu código aqui:
-
-
+// const ganho = 5000;
+// let despesas = {
+//     aluguel: lerTeclado.questionFloat("digite sua despesa de aluguel: "),
+//     internet: lerTeclado.questionFloat("digite sua despesa de internet: "),
+//     energia: lerTeclado.questionFloat("digite sua despesa de energia: "),
+//     alimentacao: lerTeclado.questionFloat("digite sua despesa de alimentação: ")
+// }
+// const listaDespesas = [
+//     despesas.aluguel,
+//     despesas.internet,
+//     despesas.energia,
+//     despesas.alimentacao
+// ]
+// despesas.total = listaDespesas.reduce((a, b) => a+b, 0)
+// despesas.media = despesas.total / listaDespesas.length
+// console.log(`
+//     Total de despesas: ${despesas.total}
+//     Média de despesas: ${despesas.media}
+//     Dinheiro restante: ${ganho - despesas.total}
+// `)
 console.log("_______________________________");
 
 
@@ -80,6 +120,12 @@ console.log("_______________________________");
 //    gols
 //    assistências
 //
+let jogador = {
+    nomeDoJogador: lerTeclado.question("digite o nome do jogador: "),
+    partidasJogadas: lerTeclado.questionInt("digite quantas partidas jogou: "),
+    gols: lerTeclado.questionInt("digite quantidade de gols: "),
+    assistencias: lerTeclado.questionInt("digite quantidade de assistencias: ")
+}
 // b) Crie um objeto "jogador".
 //
 // c) Crie um array "estatisticas" contendo:
