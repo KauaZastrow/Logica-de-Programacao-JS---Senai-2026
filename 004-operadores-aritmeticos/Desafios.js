@@ -121,11 +121,18 @@ console.log("_______________________________");
 //    assistências
 //
 let jogador = {
-    nomeDoJogador: lerTeclado.question("digite o nome do jogador: "),
-    partidasJogadas: lerTeclado.questionInt("digite quantas partidas jogou: "),
-    gols: lerTeclado.questionInt("digite quantidade de gols: "),
-    assistencias: lerTeclado.questionInt("digite quantidade de assistencias: ")
+    nomeDoJogador: null,
+    partidasJogadas: null,
+    gols: null,
+    assistencias: null,
+    estatisticas: [gols, assistencias],
+    participacoesEmGol: jogador.estatisticas.reduce((a, b) => a + b, 0),
+    mediaPorPartida: 
 }
+nomeDoJogador = lerTeclado.question("digite o nome do jogador: ")
+partidasJogadas = lerTeclado.questionInt("digite quantas partidas jogou: "),
+gols = lerTeclado.questionInt("digite quantidade de gols: "),
+assistencias = lerTeclado.questionInt("digite quantidade de assistencias: ")
 // b) Crie um objeto "jogador".
 //
 // c) Crie um array "estatisticas" contendo:

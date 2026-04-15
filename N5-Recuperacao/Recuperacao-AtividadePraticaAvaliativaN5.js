@@ -115,7 +115,7 @@ Qual é a categoria do sintoma principal ?
 2) Infeccioso / Febril 
 3) Trauma / Lesão
 : `)
-if (categoria < 1 || categoria > 3) {
+if (categoria < 1 || categoria > 3) {   //nota propria para lembrar: devia ter sido usado no dafault do swith/case
     console.log("esta opção não existe. refaça")
     process.exit();
 }
