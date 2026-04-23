@@ -12,10 +12,10 @@ let lerTeclado = require("readline-sync")
 // b) Ao final, exiba: "Contagem concluída!"
 
 // → Seu código aqui:
-for (let i = 5; i <= 12; i++) {
-    console.log(i)
-}
-console.log("Contagem concluída!");
+// for (let i = 5; i <= 12; i++) {
+//     console.log(i)
+// }
+// console.log("Contagem concluída!");
 
 console.log("_______________________________");
 
@@ -28,10 +28,10 @@ console.log("_______________________________");
 // b) Ao final, exiba: "Lançamento! 🚀"
 
 // → Seu código aqui:
-for (let i = 10; i >= 3; i--) {
-    console.log(i)
-}
-console.log("Lançamento! 🚀");
+// for (let i = 10; i >= 3; i--) {
+//     console.log(i)
+// }
+// console.log("Lançamento! 🚀");
 
 console.log("_______________________________");
 
@@ -43,14 +43,14 @@ console.log("_______________________________");
 // b) Ao final, exiba quantos números pares foram exibidos.
 
 // → Seu código aqui:
-let contador = 0
-for (let i = 0; i <= 30; i += 2) {
-    if (i % 2 === 0) {
-        contador++;
-        console.log(i)
-    }
-}
-console.log(`Total de numeros pares: ${contador}`);
+// let contador = 0
+// for (let i = 0; i <= 30; i += 2) {
+//     if (i % 2 === 0) {
+//         contador++;
+//         console.log(i)
+//     }
+// }
+// console.log(`Total de numeros pares: ${contador}`);
 
 console.log("_______________________________");
 
@@ -102,13 +102,13 @@ console.log("_______________________________");
 // c) Exiba: "<N>! = <resultado>"
 
 // → Seu código aqui:
-let N = lerTeclado.questionInt("Digite um numero inteiro de 1 a 10: ");
-let resultado = 1;
-for (let i = 1; i <= N; i++) {
-resultado *= i
-}
-console.log(resultado)
-console.log(`${N}! = ${resultado}`);
+// let N = lerTeclado.questionInt("Digite um numero inteiro de 1 a 10: ");
+// let resultado = 1;
+// for (let i = 1; i <= N; i++) {
+// resultado *= i
+// }
+// console.log(resultado)
+// console.log(`${N}! = ${resultado}`);
 console.log("_______________________________");
 
 
@@ -122,8 +122,10 @@ const cidades = ["São Paulo", "Rio de Janeiro", "Curitiba", "Salvador", "Fortal
 // c) Ao final, exiba: "Total de cidades: <quantidade>"
 
 // → Seu código aqui:
-
-
+// for (let i = 0; i < cidades.length; i++){
+//     console.log(`[${i}] - ${cidades[i]}`)
+// }
+// console.log(`Total de cidades: ${cidades.length}`)
 console.log("_______________________________");
 
 
@@ -131,14 +133,28 @@ console.log("_______________________________");
 // EXERCÍCIO 8 – Maior e menor valor
 // ------------------------------------------------------------
 // a) Declare o array:
-//    const temperaturas = [28, 15, 32, 9, 21, 37, 14, 25];
+//  const temperaturas = [28, 15, 32, 9, 21, 37, 14, 25];
 // b) Usando um for, encontre o maior e o menor valor do array.
 // c) Exiba:
 //    "Maior temperatura: <maior>°C"
 //    "Menor temperatura: <menor>°C"
 
 // → Seu código aqui:
-
+// const temperaturas = [28, 15, 32, 9, 21, 37, 14, 25];
+// let maior = 0;
+// let menor = 100;
+// for (let i = 0; i < temperaturas.length; i++){
+//     if (maior < temperaturas[i]){
+//         maior = temperaturas[i]
+//     }
+//     if (menor > temperaturas[i]){
+//         menor = temperaturas[i]
+//     }
+// }
+// console.log(`
+// Maior temperatura: ${maior}°C
+// Menor temperatura: ${menor}°C
+// `)
 
 console.log("_______________________________");
 
@@ -154,7 +170,20 @@ const idades = [12, 25, 17, 34, 15, 42, 16, 29, 8, 19];
 // c) Exiba os dois totais.
 
 // → Seu código aqui:
-
+// let maiorIdade = 0;
+// let menorIdade = 0;
+// for (let i = 0; i < idades.length; i++){
+//     if (idades[i] > 18){
+//         menorIdade ++
+//     }
+//     if (idades[i] < 18){
+//         maiorIdade ++
+//     }
+// }
+// console.log(`
+// ${menorIdade} são menores de idade.
+// ${maiorIdade} são maiores de idade.
+// `)
 
 console.log("_______________________________");
 
@@ -171,7 +200,21 @@ const salarios = [1800, 3200, 950, 4500, 2100, 1500, 7800, 2900];
 //    "R$ 3200,00 – Acima da média"
 
 // → Seu código aqui:
+// let media = null;
+// let soma = null;
+// for (let i = 0; i < salarios.length; i++) {
+//     soma += salarios[i]
+// }
+// media = soma / salarios.length
+// console.log(`Média salarial: R$ ${media.toFixed(2)}`)
 
+// for (let i = 0; i < salarios.length; i++) {
+//     if (salarios[i] < media) {
+//         console.log(`R$ ${salarios[i]} – Abaixo da média`)
+//     } else {
+//         console.log(`R$ ${salarios[i]} – Acima da média`)
+//     }
+// }
 
 console.log("_______________________________");
 
@@ -194,8 +237,35 @@ console.log("_______________________________");
 // g) Exiba o array 'turma' com console.table().
 
 // → Seu código aqui:
-
-
+// const qtlAluno = 3;
+// let media = null;
+// let soma = null;
+// let situacao = null;
+// let turma = []
+// for (let i = 0; i < qtlAluno; i++) {
+//     let nome = lerTeclado.question("Digite o nome do aluno: ")
+//     let nota = lerTeclado.questionFloat("Digite a nota do aluno: ")
+//     turma.push(
+//         aluno = {
+//             nome,
+//             nota
+//         }
+//     )
+//     soma += turma[i].nota
+// }
+// media = soma / turma.length
+// for (let i = 0; i < qtlAluno; i++) {
+//     if (turma[i].nota >= 7) {
+//         situacao = "Aprovado"
+//     } else if (turma[i].nota >= 5) {
+//         situacao = "Recuperação"
+//     } else {
+//         situacao = "Reprovado"
+//     }
+//     console.log(`${turma[i].nome}: ${turma[i].nota} - ${situacao}`)
+// }
+// console.log(`Média da turma: ${media.toFixed(2)}`)
+// console.table(turma)
 console.log("_______________________________");
 
 
@@ -213,6 +283,35 @@ console.log("_______________________________");
 // f) Exiba o array com console.table().
 
 // → Seu código aqui:
-
-
+let estoque = []
+let maiorPrec = 0
+let menorPrec = 0
+let prodCaro = null
+let prodBarato = null
+let qtProd = lerTeclado.questionInt("Quantos produtos quer cadastrar?: ")
+for (let i = 0; i < qtProd; i++) {
+    let nome = lerTeclado.question("digite o nome do produto: ")
+    let preco = lerTeclado.questionFloat("digite o preço do produto: ")
+    estoque.push(
+        produto = {
+            nome,
+            preco
+        }
+    )
+}
+for (let i = 0; i < qtProd; i++) {
+    console.log(`${estoque[i].nome}: R$ ${estoque[i].preco}`)
+}
+for (let i = 0; i < qtProd; i++) {
+    if (maiorPrec < estoque[i].preco) {
+        prodCaro = estoque[i].nome
+    }
+    if (menorPrec > estoque[i].preco) {
+        prodBarato = estoque[i].nome
+    }
+}
+console.log(`
+Produto mais caro: ${prodCaro}.
+Produto mais barato: ${prodBarato}.
+`)
 console.log("_______________________________");
