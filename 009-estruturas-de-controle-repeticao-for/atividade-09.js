@@ -284,34 +284,26 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 let estoque = []
-let maiorPrec = 0
-let menorPrec = 0
-let prodCaro = null
-let prodBarato = null
 let qtProd = lerTeclado.questionInt("Quantos produtos quer cadastrar?: ")
+
 for (let i = 0; i < qtProd; i++) {
     let nome = lerTeclado.question("digite o nome do produto: ")
     let preco = lerTeclado.questionFloat("digite o preço do produto: ")
-    estoque.push(
-        produto = {
-            nome,
-            preco
-        }
-    )
-}
-for (let i = 0; i < qtProd; i++) {
+    estoque.push({ nome, preco })
     console.log(`${estoque[i].nome}: R$ ${estoque[i].preco}`)
 }
-for (let i = 0; i < qtProd; i++) {
-    if (maiorPrec < estoque[i].preco) {
-        prodCaro = estoque[i].nome
+let prodCaro = estoque[0]
+let prodBarato = estoque[0]
+for (let i = 0; i < estoque.length; i++) {
+    if (estoque[i].preco > prodCaro.preco ) {
+        prodCaro = estoque[i]
     }
-    if (menorPrec > estoque[i].preco) {
-        prodBarato = estoque[i].nome
+    if (estoque[i].preco < prodBarato.preco) {
+        prodBarato = estoque[i]
     }
 }
 console.log(`
-Produto mais caro: ${prodCaro}.
-Produto mais barato: ${prodBarato}.
+Produto mais caro: ${prodCaro.nome}, preço: ${prodCaro.preco}.
+Produto mais barato: ${prodBarato.nome}, preço: ${prodBarato.preco}.
 `)
 console.log("_______________________________");
