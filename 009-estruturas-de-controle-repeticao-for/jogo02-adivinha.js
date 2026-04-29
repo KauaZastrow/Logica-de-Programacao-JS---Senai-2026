@@ -66,10 +66,35 @@ console.log("_______________________________");
 //           "Resultado: Vitória" ou "Resultado: Derrota"
 
 // → Seu código do MODO 1 aqui:
+
+// ============================================================
+// MODO 2 – Jogador pensa, computador adivinha
+// ============================================================
+//
+// Instruções para implementação do Modo 2:
+//
+// PASSO 1 – Instrua o jogador a digitar um número inteiro entre 1 e 100;
+// PASSO 2 – Inicialize o intervalo de busca:
+//           let min = NUM_MIN;
+//           let max = NUM_MAX;
+// PASSO 3 – Use um for para as tentativas.
+//   a) Calcule o palpite do computador: meio do intervalo
+//   b) Exiba: "Tentativa <i>: Meu palpite é <palpite>!"
+//   c) Pergunte ao jogador o resultado com questionInt():
+//        "1 – Acertei | 2 – Muito alto | 3 – Muito baixo"
+//   d) De acordo com a resposta, busque pelo meio do novo intervalo.
+// PASSO 4 – Se o computador acertar, exiba uma mensagem de vitória, exiba quantas tentativas o computador usou e finalize o jogo.
+// PASSO 5 – Se o computador não acertar, exiba uma mensagem de derrota e o número que o jogador estava pensando.
+
+// Implemente seu código abaixo:
+
 let secreto = null;
+let min = NUM_MIN;
+let max = NUM_MAX;
+let resposta = null;
 switch (modo) {
     case 1:
-        secreto = Math.floor(Math.random() * 101)
+        secreto = Math.floor(Math.random() * (max - min) + min)
         console.log(`\nMODO 1: 
         O computador sorteia um número de 1 a 100.
         O jogador tem até 7 tentativas para descobrir qual é.
@@ -80,7 +105,7 @@ switch (modo) {
             if (palpite < 0 || palpite > 100) {
                 process.exit()
             }
-            if ((i + 1) === MAX_TENTATIVAS) {
+            if ((i + 1) === MAX_TENTATIVAS && palpite != secreto) {
                 console.log(`Fim de jogo! O número era ${secreto}.`)
                 console.log(`\nNúmero secreto: ${secreto}\nTentativas usadas: ${i + 1}\nResultado: Derrota`)
                 process.exit();
@@ -103,25 +128,27 @@ switch (modo) {
         O computador tem até 7 tentativas para descobrir qual é.
         A cada erro, vc dira se o palpite foi alto ou baixo.
         `)
-
+        secreto = lerTeclado.questionInt("Digite aqui: ")
+        for (let i = 0; i < MAX_TENTATIVAS; i++) {
+            palpite = Math.floor((min + max) / 2)
+            console.log(`tentativa ${i + 1}: ${palpite}`)
+            resposta = lerTeclado.questionInt("1 - Acertou | 2 - Muito alto | 3 - Muito baixo\nDigite aqui: ")
+            switch (resposta) {
+                case 1:
+                    console.log(`\nNúmero secreto: ${secreto}\nTentativas usadas: ${i + 1}\nResultado: Vitória`)
+                    process.exit()
+                    break
+                case 2:
+                    max = palpite - 1
+                    break
+                case 3:
+                    min = palpite + 1
+                    break
+            }
+        }
+    case 3:
+        process.exit();
+        break
+    default:
+        process.exit();
 }
-// ============================================================
-// MODO 2 – Jogador pensa, computador adivinha
-// ============================================================
-//
-// Instruções para implementação do Modo 2:
-//
-// PASSO 1 – Instrua o jogador a digitar um número inteiro entre 1 e 100;
-// PASSO 2 – Inicialize o intervalo de busca:
-//           let min = NUM_MIN;
-//           let max = NUM_MAX;
-// PASSO 3 – Use um for para as tentativas.
-//   a) Calcule o palpite do computador: meio do intervalo
-//   b) Exiba: "Tentativa <i>: Meu palpite é <palpite>!"
-//   c) Pergunte ao jogador o resultado com questionInt():
-//        "1 – Acertei | 2 – Muito alto | 3 – Muito baixo"
-//   d) De acordo com a resposta, busque pelo meio do novo intervalo.
-// PASSO 4 – Se o computador acertar, exiba uma mensagem de vitória, exiba quantas tentativas o computador usou e finalize o jogo.
-// PASSO 5 – Se o computador não acertar, exiba uma mensagem de derrota e o número que o jogador estava pensando.
-
-// Implemente seu código abaixo:
