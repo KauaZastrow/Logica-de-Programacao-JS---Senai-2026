@@ -151,9 +151,10 @@
 // _______________________________▀▀▀▀
 // `)
 
-
-let a = null
-for (a = 1; a <4; ++a){
-    console.log(a)
-}
 // console.log(a)// o "a" declarado dentro do "for" só existe dentro do "for"
+let a = 5;
+while (a !== 1 && a !== 2 && a !== 3) {
+    a -= 1
+    console.log(a)
+    if (a< 0){process.exit()}
+}
