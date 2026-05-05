@@ -2,6 +2,9 @@
 //   JOGO: Batalha por Turnos
 // ============================================================
 //
+
+let lerTeclado = require("readline-sync")
+
 // Um herói enfrenta uma sequência de 3 inimigos em batalhas por turnos.
 // A cada turno, herói e inimigo atacam um ao outro simultaneamente.
 // O combate continua até que um dos dois chegue a 0 ou menos de HP (pontos de vida).
@@ -44,66 +47,109 @@
 // ============================================================
 
 const heroi = {
-    nome: "", // Deve ser preenchido pelo jogador
-    hpAtual: 100,
-    hpMax: 100,
+  nome: "", // Deve ser preenchido pelo jogador
+  hpAtual: 100,
+  hpMax: 100,
+  danoMin: 15,
+  danoMax: 25
+};
+
+// ============================================================
+// INIMIGOS (não altere a estrutura — altere os valores se quiser)
+// Remova o inimigo da lista se ele for derrotado
+// ============================================================
+
+const inimigos = [
+  {
+    nome: "Goblin",
+    hp: 30,
+    danoMin: 6,
+    danoMax: 12
+  },
+  {
+    nome: "Orc Guerreiro",
+    hp: 50,
+    danoMin: 10,
+    danoMax: 18
+  },
+  {
+    nome: "Dragão Negro",
+    hp: 80,
     danoMin: 15,
     danoMax: 25
-  };
-  
-  // ============================================================
-  // INIMIGOS (não altere a estrutura — altere os valores se quiser)
-  // Remova o inimigo da lista se ele for derrotado
-  // ============================================================
-  
-  const inimigos = [
-    { 
-      nome: "Goblin",
-      hp: 30,
-      danoMin: 6,
-      danoMax: 12
-    },
-    { 
-      nome: "Orc Guerreiro",
-      hp: 50,
-      danoMin: 10,
-      danoMax: 18
-    },
-    { 
-      nome: "Dragão Negro",
-      hp: 80,
-      danoMin: 15,
-      danoMax: 25
+  }
+];
+
+// ============================================================
+// INÍCIO DO JOGO
+// ============================================================
+
+console.log("╔══════════════════════════╗");
+console.log("║   BEM VINDO(A) AO ....   ║");
+console.log("╚══════════════════════════╝");
+
+// Peça o nome do herói e exiba as regras do jogo resumidamente.
+// → Seu código aqui:
+heroi.nome = lerTeclado.question("Seu nome: ")
+
+console.log("_______________________________");
+
+// ============================================================
+// LOOP DE BATALHAS
+// ============================================================
+
+console.log("╔════════════════════════════╗");
+console.log("║    VAMOS AS BATATALHAS!    ║");
+console.log("╚════════════════════════════╝");
+
+// → Seu código aqui:
+console.log("╔════════════════════════════════════════════╗");
+console.log("║    SEU OBJETIVO É A VITORIA E NADA MAIS!   ║");
+console.log("║                POR ESPARTA!!!              ║");
+console.log("╚════════════════════════════════════════════╝");
+let acao = null
+let atacar = null //Math.floor(Math.random() * (heroi.danoMax - heroi.danoMin) + heroi.danoMin)
+let defender = null//*0.25
+let curar = null//Math.floor(Math.random() * 10 + 10)
+while (heroi.hpAtual > 0 && inimigos !== null) {
+  if (inimigos[0].hp <= 0) {
+    console.log(`${inimigos[0].nome}eliminado!`)
+    inimigos.unshift
+  } else {
+    console.log(`
+    Inimigo: ${inimigos[0].nome}.
+    Hp: ${inimigos[0].hp}.
+    `)
+    console.log(`
+    Escolha sua ação:
+    1 - atacar
+    2 - defender-se
+    3 - curar-se
+  `)
+    acao = lerTeclado.questionInt("Digite aqui: ")
+    switch (acao) {
+      case 3:
+        if (heroi.hpAtual < heroi.hpMax) {
+          curar = Math.floor(Math.random() * 10 + 10)
+          heroi.hpAtual += curar
+          if (heroi.hpAtual > heroi.hpMax) {
+            heroi.hpAtual = heroi.hpMax
+          }
+        }
+        break
+      case 2: 
+      
+        break
+      case 1:
+        break
+      default:
     }
-  ];
-  
-  // ============================================================
-  // INÍCIO DO JOGO
-  // ============================================================
-  
-  console.log("╔══════════════════════════╗");
-  console.log("║   BEM VINDO(A) AO ....   ║");
-  console.log("╚══════════════════════════╝");
-  
-  // Peça o nome do herói e exiba as regras do jogo resumidamente.
-  // → Seu código aqui:
-  
-  
-  console.log("_______________________________");
-  
-  // ============================================================
-  // LOOP DE BATALHAS
-  // ============================================================
-  
-  console.log("╔════════════════════════════╗");
-  console.log("║    VAMOS AS BATATALHAS!    ║");
-  console.log("╚════════════════════════════╝");
-  
-  // → Seu código aqui:
-  
-  
-  console.log("_______________________________");
-  
+  }
+  console.log(``)
+}
+
+console.log("_______________________________");
+
   // ============================================================
   // RESULTADO FINAL
   // ============================================================
@@ -124,5 +170,5 @@ const heroi = {
   //        "GAME OVER"
   //        "<heroi.nome> caiu em batalha contra o <nome do inimigo>"
   //        "══════════════════════════════"
-  
+
   // → Seu código aqui:

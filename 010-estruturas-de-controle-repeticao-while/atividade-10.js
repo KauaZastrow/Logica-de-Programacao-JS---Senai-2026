@@ -173,24 +173,24 @@ console.log("_______________________________");
 //    "<nome> acertou após <tentativas> tentativa(s)! O número era <secreto>."
 
 // → Seu código aqui:
-let max = 50
-let min = 1
-let chute = null
-let tentativas = 0
-console.log("Jogo de adivinhacao.\nDigite um numero de 1 a 50")
-let aleatorio = Math.floor(Math.random()(max - min) + min)
-const nome = lerTeclado.question("Qual seu nome?\nDigite aqui => ")
-while (chute !== aleatorio) {
-    tentativas++
-    chute = lerTeclado.questionInt("Chute um numero de 1 ate 50: ")
-    if (chute === aleatorio) {
-        console.log(`${nome} acertou após ${tentativas} tentativa(s)! O número era ${aleatorio}.`)
-    }else if(chute > aleatorio){
-        console.log("Muito alto! Tente menor.")
-    } else if(chute < aleatorio){
-        console.log("Muito baixo! Tente maior.")
-    }
-}
+// let max = 50
+// let min = 1
+// let chute = null
+// let tentativas = 0
+// console.log("Jogo de adivinhacao.\nDigite um numero de 1 a 50")
+// let secreto = Math.floor(Math.random()*(max - min) + min)
+// const nome = lerTeclado.question("Qual seu nome?\nDigite aqui => ")
+// while (chute !== secreto) {
+//     tentativas++
+//     chute = lerTeclado.questionInt("Chute um numero: ")
+//     if (chute === secreto) {
+//         console.log(`${nome} acertou após ${tentativas} tentativa(s)! O número era ${secreto}.`)
+//     }else if(chute > secreto){
+//         console.log("Muito alto! Tente menor.")
+//     } else if(chute < secreto){
+//         console.log("Muito baixo! Tente maior.")
+//     }
+// }
 
 console.log("_______________________________");
 
@@ -203,7 +203,12 @@ console.log("_______________________________");
 //    Formato para exibição: "<número> x <i> = <resultado>"
 
 // → Seu código aqui:
-
+// let numero = lerTeclado.questionInt("Digite um numero inteiro e veja sua tabuada ate o 10: ")
+// let i = 1
+// while (i <= 10){
+//     console.log(`${numero} x ${i} = ${numero*i}`)
+//     i ++
+// }
 
 console.log("_______________________________");
 
@@ -220,7 +225,18 @@ console.log("_______________________________");
 // c) Ao final, exiba o saldo restante e o total de rodadas.
 
 // → Seu código aqui:
-
+// let saldo = 1000;
+// let rodada = 0
+// while (saldo > 0 && rodada < 10) {
+//     rodada++
+//     let saque = Math.floor(Math.random() * 150 + 50)
+//     if (saque > saldo) {
+//         console.log("Saldo insuficiente. Fim!")
+//         process.exit()
+//     } else {
+//         console.log(`Rodada ${rodada}: sacou R$ ${saque} | Novo saldo: R$ ${saldo -= saque}`)
+//     }
+// }
 
 console.log("_______________________________");
 
@@ -238,6 +254,17 @@ console.log("_______________________________");
 // d) Exiba: "Total de contatos cadastrados: <qtd>"
 
 // → Seu código aqui:
-
+// let novoContato = true
+// let listaTelefonica = []
+// do {
+//     let contato = {
+//         nome: lerTeclado.question("Digite o nome do contato: "),
+//         numero: lerTeclado.questionInt("Digite o numero dele (sem espaçamento): ")
+//     }
+//     listaTelefonica.push(contato)
+//     novoContato = lerTeclado.keyInYN("Deseja add um novo contato?")
+// } while (novoContato)
+// console.table(listaTelefonica)
+// console.log(`Total de contatos cadastrados: ${listaTelefonica.length}`)
 
 console.log("_______________________________");
