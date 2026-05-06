@@ -111,6 +111,7 @@ let acao = null
 let atacar = null //Math.floor(Math.random() * (heroi.danoMax - heroi.danoMin) + heroi.danoMin)
 let defender = null//*0.25
 let curar = null//Math.floor(Math.random() * 10 + 10)
+
 while (heroi.hpAtual > 0 && inimigos !== null) {
   if (inimigos[0].hp <= 0) {
     console.log(`${inimigos[0].nome}eliminado!`)
@@ -137,10 +138,9 @@ while (heroi.hpAtual > 0 && inimigos !== null) {
           }
         }
         break
-      case 2: 
-      
-        break
       case 1:
+        atacar = Math.floor(Math.random() * (heroi.danoMax - heroi.danoMin) + heroi.danoMin)
+
         break
       default:
     }
