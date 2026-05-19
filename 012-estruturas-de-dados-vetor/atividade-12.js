@@ -188,8 +188,12 @@ const livros = [
 // d) Exiba o título do livro com MAIS páginas.
 
 // → Seu código aqui:
+let totalPagLivros = 0
+let 
 console.table(livros)
-for 
+for (const item of livros){
+
+}
 
 console.log("_______________________________");
 
