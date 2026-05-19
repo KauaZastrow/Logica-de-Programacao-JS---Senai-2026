@@ -1,8 +1,7 @@
 // ============================================================
 //   ATIVIDADE 13 – Estruturas de Dados: Matriz
 // ============================================================
-
-
+let lerTeclado = require("readline-sync")
 // ------------------------------------------------------------
 // EXERCÍCIO 1 – Lendo uma matriz
 // ------------------------------------------------------------
@@ -64,11 +63,11 @@ console.log("_______________________________");
 // EXERCÍCIO 3 – Maior e menor valor
 // ------------------------------------------------------------
 // a) Utilizando a matriz:
-const m = [
-    [12, 7, 25],
-    [3, 18, 9],
-    [31, 14, 22],
-];
+// const m = [
+//     [12, 7, 25],
+//     [3, 18, 9],
+//     [31, 14, 22],
+// ];
 // b) Usando for aninhado, encontre o MAIOR e o MENOR valor da matriz.
 // c) Exiba também a posição (linha, coluna) onde cada um está.
 
@@ -106,8 +105,16 @@ console.log("_______________________________");
 // d) Exiba a soma da DIAGONAL principal (m[i][i]).
 
 // → Seu código aqui:
-
-
+// let colunas = Array(m[0].length).fill(0)
+// for (let i = 0; i < m.length; i++) {
+//     let soma = 0
+//     for (let j = 0; j < m[i].length; j++) {
+//         soma += m[i][j]
+//         colunas[j] += m[i][j]
+//     }
+//     console.log(`Linha ${i + 1}: ${soma}`)
+// }
+// for (let i = 0; i < m[0].length; i++) { console.log(`Coluna ${i + 1}: ${colunas[i]}`) }
 console.log("_______________________________");
 
 
@@ -120,6 +127,15 @@ console.log("_______________________________");
 // c) Exiba a matriz final com console.table().
 
 // → Seu código aqui:
-
-
+// const linhas = lerTeclado.questionInt("Digite quantidade de linhas: ")
+// const colunas = lerTeclado.questionInt("Digite quantidade de colunas: ")
+// let m = []
+// for (let i = 0; i < linhas; i++) {
+//     let linha = []
+//     for (let j = 0; j < colunas; j++) {
+//         linha.push(lerTeclado.questionInt(`Digite oq tem no indice [${i}][${j}]: `))
+//     }
+//     m.push(linha)
+// }
+// console.table(m)
 console.log("_______________________________");
