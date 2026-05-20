@@ -18,30 +18,33 @@ let jogoVelha = [
   ["-", "-", "-"],
   ["-", "-", "-"]
 ]
+let i = 0
 let vitoria = false
 while (true) {
-  let i = 0
-  let linha = lerTeclado.questionInt("linha: ")
-  let coluna = lerTeclado.questionInt("coluna: ")
+  let linha = lerTeclado.questionInt("linha: ") - 1
+  let coluna = lerTeclado.questionInt("coluna: ") - 1
+  if ((linha < 0 || coluna < 0) ||) {
+    continue
+  }
   if (jogoVelha[linha][coluna] == "x" || jogoVelha[linha][coluna] == "o") {
     continue
   }
-  while (jogoVelha[linha][coluna] != "x" || jogoVelha[linha][coluna] != "o") {
+  while (jogoVelha[linha][coluna] !== "x" && jogoVelha[linha][coluna] !== "o") {
     jogoVelha[linha][coluna] = lerTeclado.question("Digite seu simbolo: ")
   }
   i++
   console.table(jogoVelha)
-  if ((jogoVelha[0][0] && jogoVelha[0][1] && jogoVelha[0][2]) == "x" || (jogoVelha[0][0] && jogoVelha[0][1] && jogoVelha[0][2]) == "o" ){vitoria = true}
-  if ((jogoVelha[1][0] && jogoVelha[1][1] && jogoVelha[1][2]) == "x" || (jogoVelha[1][0] && jogoVelha[1][1] && jogoVelha[1][2]) == "o" ){vitoria = true}
-  if ((jogoVelha[2][0] && jogoVelha[2][1] && jogoVelha[2][2]) == "x" || (jogoVelha[2][0] && jogoVelha[2][1] && jogoVelha[2][2]) == "o" ){vitoria = true}
+  if ((jogoVelha[0][0] == "x" && jogoVelha[0][1] == "x" && jogoVelha[0][2] == "x") || (jogoVelha[0][0] == "o" && jogoVelha[0][1] == "o" && jogoVelha[0][2] == "o")) { vitoria = true }
+  if ((jogoVelha[1][0] == "x" && jogoVelha[1][1] == "x" && jogoVelha[1][2] == "x") || (jogoVelha[1][0] == "o" && jogoVelha[1][1] == "o" && jogoVelha[1][2] == "o")) { vitoria = true }
+  if ((jogoVelha[2][0] == "x" && jogoVelha[2][1] == "x" && jogoVelha[2][2] == "x") || (jogoVelha[2][0] == "o" && jogoVelha[2][1] == "o" && jogoVelha[2][2] == "o")) { vitoria = true }
   /////
-  if ((jogoVelha[0][0] && jogoVelha[1][0] && jogoVelha[2][0]) == "x" || (jogoVelha[0][0] && jogoVelha[1][0] && jogoVelha[2][0]) == "o" ){vitoria = true}
-  if ((jogoVelha[0][1] && jogoVelha[1][1] && jogoVelha[2][2]) == "x" || (jogoVelha[0][1] && jogoVelha[1][1] && jogoVelha[2][2]) == "o" ){vitoria = true}
-  if ((jogoVelha[0][2] && jogoVelha[1][2] && jogoVelha[2][2]) == "x" || (jogoVelha[0][2] && jogoVelha[1][2] && jogoVelha[2][2]) == "o" ){vitoria = true}
+  if ((jogoVelha[0][0] == "x" && jogoVelha[1][0] == "x" && jogoVelha[2][0] == "x") || (jogoVelha[0][0] == "o" && jogoVelha[1][0] == "o" && jogoVelha[2][0] == "o")) { vitoria = true }
+  if ((jogoVelha[0][1] == "x" && jogoVelha[1][1] == "x" && jogoVelha[2][2] == "x") || (jogoVelha[0][1] == "o" && jogoVelha[1][1] == "o" && jogoVelha[2][2] == "o")) { vitoria = true }
+  if ((jogoVelha[0][2] == "x" && jogoVelha[1][2] == "x" && jogoVelha[2][2] == "x") || (jogoVelha[0][2] == "o" && jogoVelha[1][2] == "o" && jogoVelha[2][2] == "o")) { vitoria = true }
   /////
-  if ((jogoVelha[0][0] && jogoVelha[1][1] && jogoVelha[2][2]) == "x" || (jogoVelha[0][0] && jogoVelha[1][1] && jogoVelha[2][2]) == "o" ){vitoria = true}
-  if ((jogoVelha[2][2] && jogoVelha[1][1] && jogoVelha[0][0]) == "x" || (jogoVelha[2][2] && jogoVelha[1][1] && jogoVelha[0][0]) == "o" ){vitoria = true}
-  if (vitoria === true){
+  if ((jogoVelha[0][0] == "x" && jogoVelha[1][1] == "x" && jogoVelha[2][2] == "x") || (jogoVelha[0][0] == "o" && jogoVelha[1][1] == "o" && jogoVelha[2][2] == "o")) { vitoria = true }
+  if ((jogoVelha[2][2] == "x" && jogoVelha[1][1] == "x" && jogoVelha[0][0] == "x") || (jogoVelha[2][2] == "o" && jogoVelha[1][1] == "o" && jogoVelha[0][0] == "o")) { vitoria = true }
+  if (vitoria === true) {
     console.log(`${jogoVelha[linha][coluna]} Wins`)
   } else if (i === 9) {
     break
