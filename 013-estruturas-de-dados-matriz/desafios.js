@@ -1,8 +1,7 @@
 // ============================================================
 //   DESAFIOS – Matriz
 // ============================================================
-
-
+let lerTeclado = require("readline-sync")
 // ------------------------------------------------------------
 // DESAFIO 1 – Jogo da velha simplificado
 // ------------------------------------------------------------
@@ -14,10 +13,43 @@
 // c) Não precisa verificar vencedor — apenas alternar X e O.
 
 // → Seu código aqui:
-
+let jogoVelha = [
+  ["-", "-", "-"],
+  ["-", "-", "-"],
+  ["-", "-", "-"]
+]
+let vitoria = false
+while (true) {
+  let i = 0
+  let linha = lerTeclado.questionInt("linha: ")
+  let coluna = lerTeclado.questionInt("coluna: ")
+  if (jogoVelha[linha][coluna] == "x" || jogoVelha[linha][coluna] == "o") {
+    continue
+  }
+  while (jogoVelha[linha][coluna] != "x" || jogoVelha[linha][coluna] != "o") {
+    jogoVelha[linha][coluna] = lerTeclado.question("Digite seu simbolo: ")
+  }
+  i++
+  console.table(jogoVelha)
+  if ((jogoVelha[0][0] && jogoVelha[0][1] && jogoVelha[0][2]) == "x" || (jogoVelha[0][0] && jogoVelha[0][1] && jogoVelha[0][2]) == "o" ){vitoria = true}
+  if ((jogoVelha[1][0] && jogoVelha[1][1] && jogoVelha[1][2]) == "x" || (jogoVelha[1][0] && jogoVelha[1][1] && jogoVelha[1][2]) == "o" ){vitoria = true}
+  if ((jogoVelha[2][0] && jogoVelha[2][1] && jogoVelha[2][2]) == "x" || (jogoVelha[2][0] && jogoVelha[2][1] && jogoVelha[2][2]) == "o" ){vitoria = true}
+  /////
+  if ((jogoVelha[0][0] && jogoVelha[1][0] && jogoVelha[2][0]) == "x" || (jogoVelha[0][0] && jogoVelha[1][0] && jogoVelha[2][0]) == "o" ){vitoria = true}
+  if ((jogoVelha[0][1] && jogoVelha[1][1] && jogoVelha[2][2]) == "x" || (jogoVelha[0][1] && jogoVelha[1][1] && jogoVelha[2][2]) == "o" ){vitoria = true}
+  if ((jogoVelha[0][2] && jogoVelha[1][2] && jogoVelha[2][2]) == "x" || (jogoVelha[0][2] && jogoVelha[1][2] && jogoVelha[2][2]) == "o" ){vitoria = true}
+  /////
+  if ((jogoVelha[0][0] && jogoVelha[1][1] && jogoVelha[2][2]) == "x" || (jogoVelha[0][0] && jogoVelha[1][1] && jogoVelha[2][2]) == "o" ){vitoria = true}
+  if ((jogoVelha[2][2] && jogoVelha[1][1] && jogoVelha[0][0]) == "x" || (jogoVelha[2][2] && jogoVelha[1][1] && jogoVelha[0][0]) == "o" ){vitoria = true}
+  if (vitoria === true){
+    console.log(`${jogoVelha[linha][coluna]} Wins`)
+  } else if (i === 9) {
+    break
+  }
+}
+console.log(`${jogoVelha[linha][coluna]} Wins`)
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // DESAFIO 2 – Batalha naval simplificada
@@ -46,11 +78,11 @@ console.log("_______________________________");
 // ------------------------------------------------------------
 // a) Utilizando:
 const turma = [
-  { nome: "Ana",    notas: [8.0, 7.5, 9.0, 6.5] },
-  { nome: "Bruno",  notas: [4.0, 5.5, 6.0, 5.0] },
-  { nome: "Carla",  notas: [9.5, 9.0, 9.5, 10]  },
-  { nome: "Diego",  notas: [7.0, 6.5, 7.0, 8.5] },
-  { nome: "Eva",    notas: [3.5, 4.0, 5.0, 4.5] },
+  { nome: "Ana", notas: [8.0, 7.5, 9.0, 6.5] },
+  { nome: "Bruno", notas: [4.0, 5.5, 6.0, 5.0] },
+  { nome: "Carla", notas: [9.5, 9.0, 9.5, 10] },
+  { nome: "Diego", notas: [7.0, 6.5, 7.0, 8.5] },
+  { nome: "Eva", notas: [3.5, 4.0, 5.0, 4.5] },
 ];
 // b) Construa um vetor 'boletim' onde cada item seja:
 //    { nome, b1, b2, b3, b4, media, situacao }
