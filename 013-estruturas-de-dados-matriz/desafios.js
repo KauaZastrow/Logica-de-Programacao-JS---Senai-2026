@@ -23,14 +23,15 @@ let vitoria = false
 while (true) {
   let linha = lerTeclado.questionInt("linha: ") - 1
   let coluna = lerTeclado.questionInt("coluna: ") - 1
-  if ((linha < 0 || coluna < 0) ||) {
+  if ((linha < 0 || coluna < 0) || (linha > 2 || coluna > 2)) {
+    continue
+  } else if (jogoVelha[linha][coluna] == "x" || jogoVelha[linha][coluna] == "o") {
     continue
   }
-  if (jogoVelha[linha][coluna] == "x" || jogoVelha[linha][coluna] == "o") {
-    continue
-  }
-  while (jogoVelha[linha][coluna] !== "x" && jogoVelha[linha][coluna] !== "o") {
-    jogoVelha[linha][coluna] = lerTeclado.question("Digite seu simbolo: ")
+  if (i % 2 === 0) {
+    jogoVelha[linha][coluna] = "O"
+  } else {
+    jogoVelha[linha][coluna] = "X"
   }
   i++
   console.table(jogoVelha)
@@ -46,7 +47,9 @@ while (true) {
   if ((jogoVelha[2][2] == "x" && jogoVelha[1][1] == "x" && jogoVelha[0][0] == "x") || (jogoVelha[2][2] == "o" && jogoVelha[1][1] == "o" && jogoVelha[0][0] == "o")) { vitoria = true }
   if (vitoria === true) {
     console.log(`${jogoVelha[linha][coluna]} Wins`)
+    break
   } else if (i === 9) {
+    console.log(`Velha`)
     break
   }
 }
