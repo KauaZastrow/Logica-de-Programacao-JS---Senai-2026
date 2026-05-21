@@ -1,15 +1,15 @@
 let lerTeclado = require("readline-sync")
-console.log("\nEste é um jogo da velha classico.\nPara jogar escolha qual linha desejada e qual coluna desejada.\nO primeiro jogador sera o [X] e o segundudo o [O].\n")
+console.log("By Kauã Zastrow\nEste é um jogo da velha classico.\nPara jogar escolha qual linha desejada e qual coluna desejada.\nO primeiro jogador sera o [X] e o segundudo o [O].\n")
 let sair = false
 let continuarJogoPC = false
 let continuarJogoAmigo = false
-let vitoriasX = 0
-let vitoriasO = 0
 const max = 3
 const min = 0
 let x = false
 let o = false
 while (true) {
+    let vitoriasX = 0
+    let vitoriasO = 0
     let jogo = lerTeclado.keyInYN("Deseja jogar com amigo ou com computador? (Y = amigo/ N = PC)")
     jogo === true ? continuarJogoAmigo = true : continuarJogoPC = true
     let i = 0
@@ -93,6 +93,7 @@ while (true) {
                     i++
                     break
                 }
+                console.log("Local não encontrados ou ja esta em uso. Tente novamente.")
             }
             console.table(jogoVelha)
             if (jogoVelha[0][0] == "X" && jogoVelha[0][1] == "X" && jogoVelha[0][2] == "X") { x = true; vitoria = true } else if (jogoVelha[0][0] == "O" && jogoVelha[0][1] == "O" && jogoVelha[0][2] == "O") { o = true; vitoria = true }
