@@ -40,16 +40,23 @@ while (true) {
         jogoVelha[linha][coluna] = a
         i++
         console.table(jogoVelha)
-        if ((jogoVelha[0][0] == "X" && jogoVelha[0][1] == "X" && jogoVelha[0][2] == "X") || (jogoVelha[0][0] == "O" && jogoVelha[0][1] == "O" && jogoVelha[0][2] == "O")) { vitoria = true }
-        if ((jogoVelha[1][0] == "X" && jogoVelha[1][1] == "X" && jogoVelha[1][2] == "X") || (jogoVelha[1][0] == "O" && jogoVelha[1][1] == "O" && jogoVelha[1][2] == "O")) { vitoria = true }
-        if ((jogoVelha[2][0] == "X" && jogoVelha[2][1] == "X" && jogoVelha[2][2] == "X") || (jogoVelha[2][0] == "O" && jogoVelha[2][1] == "O" && jogoVelha[2][2] == "O")) { vitoria = true }
+        for (let k = 0; k < jogoVelha[0]; k++) {
+            if ((jogoVelha[k][0] == a && jogoVelha[k][1] == a && jogoVelha[k][2] == a) || (jogoVelha[0][k] == a && jogoVelha[1][k] == a && jogoVelha[2][k] == a)) {
+                vitoria = true
+            }
+        }
+        if (jogoVelha[0][0] == a && jogoVelha[1][1] == a && jogoVelha[2][2] == a) { vitoria = true }
+        if (jogoVelha[2][2] == a && jogoVelha[1][1] == a && jogoVelha[0][0] == a) { vitoria = true }
+        // if (jogoVelha[0][0] === a && jogoVelha[0][1] == a && jogoVelha[0][2] == a) { vitoria = true }
+        // if (jogoVelha[1][0] === a && jogoVelha[1][1] == a && jogoVelha[1][2] == a) { vitoria = true }
+        // if (jogoVelha[2][0] === a && jogoVelha[2][1] == a && jogoVelha[2][2] == a) { vitoria = true }
+        // //////////
+        // if (jogoVelha[0][0] == a && jogoVelha[1][0] == a && jogoVelha[2][0] == a) { vitoria = true }
+        // if (jogoVelha[0][1] == a && jogoVelha[1][1] == a && jogoVelha[2][2] == a) { vitoria = true }
+        // if (jogoVelha[0][2] == a && jogoVelha[1][2] == a && jogoVelha[2][2] == a) { vitoria = true }
         //////////
-        if ((jogoVelha[0][0] == "X" && jogoVelha[1][0] == "X" && jogoVelha[2][0] == "X") || (jogoVelha[0][0] == "O" && jogoVelha[1][0] == "O" && jogoVelha[2][0] == "O")) { vitoria = true }
-        if ((jogoVelha[0][1] == "X" && jogoVelha[1][1] == "X" && jogoVelha[2][2] == "X") || (jogoVelha[0][1] == "O" && jogoVelha[1][1] == "O" && jogoVelha[2][2] == "O")) { vitoria = true }
-        if ((jogoVelha[0][2] == "X" && jogoVelha[1][2] == "X" && jogoVelha[2][2] == "X") || (jogoVelha[0][2] == "O" && jogoVelha[1][2] == "O" && jogoVelha[2][2] == "O")) { vitoria = true }
-        //////////
-        if ((jogoVelha[0][0] == "X" && jogoVelha[1][1] == "X" && jogoVelha[2][2] == "X") || (jogoVelha[0][0] == "O" && jogoVelha[1][1] == "O" && jogoVelha[2][2] == "O")) { vitoria = true }
-        if ((jogoVelha[2][2] == "X" && jogoVelha[1][1] == "X" && jogoVelha[0][0] == "X") || (jogoVelha[2][2] == "O" && jogoVelha[1][1] == "O" && jogoVelha[0][0] == "O")) { vitoria = true }
+        // if (jogoVelha[0][0] == a && jogoVelha[1][1] == a && jogoVelha[2][2] == a) { vitoria = true }
+        // if (jogoVelha[2][2] == a && jogoVelha[1][1] == a && jogoVelha[0][0] == a) { vitoria = true }
         if (vitoria === true) {
             if (jogoVelha[linha][coluna] === "X") { vitoriasX++ } else { vitoriasO++ }
             console.log(`${jogoVelha[linha][coluna]} Venceu! Com ${jogoVelha[linha][coluna] === "X" ? vitoriasX : vitoriasO} vitorias!`)
