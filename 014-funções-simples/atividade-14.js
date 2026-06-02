@@ -184,8 +184,13 @@ const filmes = ["Matrix", "Interestelar", "Origem", "Senhor dos Anéis"];
 // c) Chame listarFilmes() duas vezes.
 
 // → Seu código aqui:
-
-
+// function listarFilmes() {
+//     for (let i = 0; i < filmes.length; i++) {
+//         console.log(`${i + 1} - ${filmes[i]}`)
+//     }
+// }
+// listarFilmes()
+// listarFilmes()
 console.log("_______________________________");
 
 
@@ -204,8 +209,42 @@ console.log("_______________________________");
 // E chame a função principal.
 
 // → Seu código aqui:
-
-
+// function limparTela() {
+//     for (let i = 0; i < 30; i++) {
+//         console.log("")
+//     }
+// }
+// function banner() {
+//     console.log(`
+//      ╱|、          ____
+//     (x  o 7       |Speak Ingles?
+//      |、⁻〵       /____
+//      じしˍ,)ノ
+//     `)
+// }
+// function pedirNome() {
+//     nome = lerTeclado.question("Qual seu nome?  => ")
+//     console.log(`
+//      ╱|、          ___
+//     (x  o 7       |Olá, ${nome}
+//      |、⁻〵       /___
+//      じしˍ,)ノ
+//     `)
+// }
+// function rodape() {
+//     console.log(`   Sistema desenvolvido por Kauã G. Zastrow!
+//      ╱|、          ________
+//     (x  o 7       | Slice!
+//      |、⁻〵       /________
+//      じしˍ,)ノ`)
+// }
+// function prgPrincipal() {
+//     limparTela()
+//     banner()
+//     pedirNome()
+//     rodape()
+// }
+// prgPrincipal()
 console.log("_______________________________");
 
 
@@ -225,6 +264,52 @@ console.log("_______________________________");
 //    correspondente em cada case. Encerre quando o usuário digitar 0.
 
 // → Seu código aqui:
-
-
+// function linha() {
+//     console.log("--------------------------")
+// }
+// function opcaoSomar() {
+//     a = lerTeclado.questionFloat("Digite um numero: ")
+//     b = lerTeclado.questionFloat("Digite outro numero: ")
+//     console.log(`${a} + ${b} = ${a + b}`)
+// }
+// function opcaoSubtrair() {
+//     a = lerTeclado.questionFloat("Digite um numero: ")
+//     b = lerTeclado.questionFloat("Digite outro numero: ")
+//     console.log(`${a} - ${b} = ${a - b}`)
+// }
+// function opcaoMultiplicar() {
+//     a = lerTeclado.questionFloat("Digite um numero: ")
+//     b = lerTeclado.questionFloat("Digite outro numero: ")
+//     console.log(`${a} x ${b} = ${a * b}`)
+// }
+// function opcaoDividir() {
+//     a = lerTeclado.questionFloat("Digite um numero: ")
+//     b = lerTeclado.questionFloat("Digite outro numero: ")
+//     console.log(`${a} / ${b} = ${a / b}`)
+// }
+// function exibirMenu() {
+//     linha()
+//     operacao = lerTeclado.questionInt("1 - Somar| 2 - Subtrair| 3 - Multiplicar| 4 - Dividir\n Digite oq vc quer fazer(0 para sair): ")
+//     linha()
+// }
+// while (true) {
+//     exibirMenu()
+//     switch (operacao) {
+//         case 0:
+//             break
+//         case 1:
+//             opcaoSomar()
+//             continue
+//         case 2:
+//             opcaoSubtrair()
+//             continue
+//         case 3:
+//             opcaoMultiplicar()
+//             continue
+//         case 4:
+//             opcaoDividir()
+//             continue
+//     }
+//     break
+// }
 console.log("_______________________________");
