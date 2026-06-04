@@ -11,7 +11,12 @@ let lig4 = [
 // ⭕🧊
 //pA = peça atual
 let jogadas = 0
-console.log("⭕🧊")
+console.log(`⭕🧊   Sistema desenvolvido por Kauã G. Zastrow!
+     ╱|、            ________
+    (x  o 7         | Slice!
+     |、⁻〵  ノ|    /________
+     じしˍ,)|ノ
+     `)
 function vencedor() {
     let vitoria1 = false //⭕
     let vitoria2 = false //🧊
@@ -22,5 +27,10 @@ function vencedor() {
             if (lig4[l][c] === pA && lig4[l + 1][c + 1] === pA && lig4[l + 2][c + 2] === pA && lig4[l + 3][c + 3] === pA || lig4[l][c] === pA && lig4[l - 1][c - 1] === pA && lig4[l - 2][c - 2] === pA && lig4[l - 3][c - 3] === pA) pA === "🔴" ? vitoria1 = true : vitoria2 = true
         }
     }
-    if (jogadas === 41){}
+}
+function verificJog(j) {
+    if (j != "[  ]") return true
+}
+while (true) {
+    let jogada = lerTeclado.questionInt("Digite 1 numero de uma coluna(1 a 7): ")
 }
