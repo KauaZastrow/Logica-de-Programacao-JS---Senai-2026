@@ -32,52 +32,52 @@ console.log("_______________________________");
 // c) Teste cada uma com diversos valores e exiba os resultados.
 
 // → Seu código aqui:
-let num1 = 0
-let num2 = 0
-function catalogo() {
-    console.log("1 - SOMAR | 2 - SUBTRAIR | 3 - MULTIPLICAR | 4 - DIVIDIR")
-    escolha = lerTeclado.questionFloat("Digite algum numero entre 1 e 4 (0 para sair): ")
-    return escolha
-}
-function somar(a, b) {
-    return console.log(a + b)
-}
-function subtrair(a, b) {
-    return console.log(a - b)
-}
-function multiplicar(a, b) {
-    return console.log(a * b)
-}
-function dividir(a, b) {
-    return console.log(a / b)
-}
-function operacao(e) {
-    switch (e) {
-        case 0:
-            break
-        case 1:
-            somar(num1, num2)
-            break
-        case 2:
-            subtrair(num1, num2)
-            break
-        case 3:
-            multiplicar(num1, num2)
-            break
-        case 4:
-            dividir(num1, num2)
-            break
-    }
-}
-function valorInvalido (a, b){
-    if (num1 === 0 || num2 === 0 && f === 4) return true
-}
-while (true) {
-    let f = catalogo()
-    if (f === 0) break
-    num1 = lerTeclado.questionFloat("Digite um numero: ")
-    operacao(f)
-}
+// let n = 0
+// let num = []
+// function catalogo() {
+//     console.log("1 - SOMAR | 2 - SUBTRAIR | 3 - MULTIPLICAR | 4 - DIVIDIR")
+//     escolha = lerTeclado.questionFloat("Digite algum numero entre 1 e 4 (0 para sair): ")
+//     return escolha
+// }
+// function somar(a, b) { return (a + b) }
+// function subtrair(a, b) { return (a - b) }
+// function multiplicar(a, b) { return (a * b) }
+// function dividir(a, b) { return (a / b) }
+// function operacao(e, num1, num2) {
+//     switch (e) {
+//         case 0:
+//             break
+//         case 1:
+//             return somar(num1, num2)
+//         case 2:
+//             return subtrair(num1, num2)
+//         case 3:
+//             return multiplicar(num1, num2)
+//         case 4:
+//             return dividir(num1, num2)
+//     }
+// }
+// function valorInvalido(num1, num2, f) {
+//     if (num1 === 0 || num2 === 0 && f === 4) return true
+// }
+// while (true) {
+//     num = []
+//     n = 0
+//     let f = catalogo()
+//     if (f === 0) break
+//     for (let i = 0; i < 2; i++) {
+//         do {
+//             n = lerTeclado.questionFloat("Digite um numero: ")
+//             f === 4 && n === 0 ? console.log("Erro: divisão por zero") : console.log(n + "/")
+//         } while (f === 4 && n === 0)
+//         num.push(n)
+//     }
+//     console.table(num)
+//     if (num.length === 2) {
+//         console.log(operacao(f, num[0], num[1]))
+//     }
+// }
+
 console.log("_______________________________");
 
 
@@ -91,7 +91,28 @@ console.log("_______________________________");
 // d) Teste cada função e exiba os resultados.
 
 // → Seu código aqui:
-
+// let vogais = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+// function ehPar(n) {
+//     if(n % 2 === 0) {
+//         return true
+//     }else{return false}
+// }
+// function ehMaiorDeIdade(idade) {
+//     if(idade >= 18) {
+//         return true
+//     }else{return false}
+// }
+// function ehVogal(letra) {
+//     if(vogais.includes(letra)) {
+//         return true
+//     }else{return false}
+// }
+// console.log(ehPar(3))
+// console.log(ehPar(8))
+// console.log(ehMaiorDeIdade(14))
+// console.log(ehMaiorDeIdade(31))
+// console.log(ehVogal("r"))
+// console.log(ehVogal("I"))
 
 console.log("_______________________________");
 
@@ -110,7 +131,20 @@ console.log("_______________________________");
 //    "IMC: <valor> – <classificação>"
 
 // → Seu código aqui:
-
+// let rs = require("readline-sync"); 
+// function classificarIMC(imc) {
+//     if(imc < 18.5) {return "Abaixo do peso"}
+//     if(imc < 25) {return "Peso normal"}
+//     if(imc < 30) {return "Sobrepeso"}
+//     return "Obesidade"
+// }
+// function calcularIMC(peso,altura) {
+//     return (peso / (altura*altura)).toFixed(2)
+// }
+// let peso = rs.questionInt(`Qual o seu peso(Kg)? : `)
+// let altura = rs.questionFloat(`Qual a sua altura(metros)? : `)
+// const imc = calcularIMC(peso,altura)
+// console.log(`IMC ${imc} - ${classificarIMC(imc)}`)
 
 console.log("_______________________________");
 
@@ -127,7 +161,12 @@ console.log("_______________________________");
 // c) Exiba cada resultado formatado com toFixed(2).
 
 // → Seu código aqui:
-
+// function precoComDesconto(valor, desconto = 10) {
+//     return valor -= (valor / 100) * desconto
+// }
+// console.log(precoComDesconto(100))
+// console.log(precoComDesconto(100, 25))
+// console.log(precoComDesconto(250, 5))
 
 console.log("_______________________________");
 
@@ -143,7 +182,27 @@ console.log("_______________________________");
 numeros = [12, 7, 25, 3, 18, 9, 31, 14];
 
 // → Seu código aqui:
-
+// function somarVetor(vet) {
+//     let n = 0
+//     for (let i = 0; i < vet.length; i++) {
+//         n += vet[i]
+//     }
+//     return (n)
+// }
+// function mediaVetor(vet) {
+//     let n = somarVetor(vet)
+//     return console.log((n /= vet.length).toFixed(0))
+// }
+// function maiorDoVetor(vet) {
+//     return console.log(Math.max(...vet))
+// }
+// function menorDoVetor(vet) {
+//     return console.log(Math.min(...vet))
+// }
+// console.log(somarVetor(numeros))
+// mediaVetor(numeros)
+// maiorDoVetor(numeros)
+// menorDoVetor(numeros)
 
 console.log("_______________________________");
 
@@ -158,7 +217,22 @@ console.log("_______________________________");
 // c) Crie 3 alunos chamando a função e exiba-os com console.table([a1, a2, a3]).
 
 // → Seu código aqui:
-
+// let todosAlunos = []
+// let qAlunos = lerTeclado.questionInt("Quantos alunos? ")
+// function criarAluno(a) {
+//     for (let i = 0; i < a; i++) {
+//         let nome = lerTeclado.question("Nome do aluno: ")
+//         let idade = lerTeclado.question("Idade do aluno: ")
+//         let nota = lerTeclado.question("Nota do aluno: ")
+//         let aluno = { nome: nome, idade: idade, nota: nota, situacao: situacao(nota) }
+//         todosAlunos.push(aluno)
+//     }
+// }
+// function situacao(a) {
+//     return a >= 7 ? "Aprovado" : "Reprovado"
+// }
+// criarAluno(qAlunos)
+// console.table(todosAlunos)
 
 console.log("_______________________________");
 
@@ -174,6 +248,17 @@ console.log("_______________________________");
 // d) Combine: gere pares de 1 a 50 e filtre os maiores que 30.
 
 // → Seu código aqui:
-
+// function gerarPares(inicio, fim) {
+//     let gerarPares = []
+//     for (let i = inicio; i <= fim; i++) {
+//         if (i % 2 === 0) gerarPares.push(i)
+//     }
+//     return gerarPares
+// }
+// function filtrarMaioresQue(vet, limite) {
+//     return gerarPares(limite, 50)
+// }
+// console.log(gerarPares(1, 20))
+// console.log(filtrarMaioresQue(gerarPares(1, 50), 30))
 
 console.log("_______________________________");
