@@ -52,7 +52,6 @@ async function pegar_Carta(deckID, quantidade) {
         for (let i = 0; i < cartasID.length; i++) {
             comprarCartas.push(cartasID[i].code)
         }
-        console.log(`Carta(s) comprada(s): ${comprarCartas}`)
         return comprarCartas
     }
     catch (error) {
@@ -62,7 +61,7 @@ async function pegar_Carta(deckID, quantidade) {
 // Add cartas iniciais (duas cartas)
 async function addCartasIniciaisMaos() {
     try {
-        const cartas = null
+        let cartas = null
         for (const carta of jogadores) {
             cartas = pegar_Carta(deckID, 2)
             carta.deckPessoal.push(cartas[0], cartas[1])
@@ -72,12 +71,19 @@ async function addCartasIniciaisMaos() {
         console.log("erro na function addCartasIniciaisMaos()")
     }
 }
+function mostrarMaos() {
+    for (let i = 1; i < jogadores.length; i++) {
+        for (let l = 0; l < jogadores[i].deckPessoal.length; l++) {
+            console.log(jogadores[i].deckPessoal[l])
+        }
+    }
+}
 // Add uma carta ao pedir mais uma
 async function addCartasMaos() {
     try {
-        const cartas = null
         for (const carta of jogadores) {
-            cartas = pegar_Carta(deckID, 1)
+            cartas = await pegar_Carta(deckID, 1)
+            console.log(cartas)
             carta.deckPessoal.push(cartas[0])
         }
     }
@@ -85,9 +91,10 @@ async function addCartasMaos() {
         console.log("erro na function addCartasMaos()")
     }
 }
-function iniciarJogo() {
+async function iniciarJogo() {
     addJogador()
-    gerarBaralho()
-    addCartasIniciaisMaos()
+    await gerarBaralho()
+    await addCartasIniciaisMaos()
+    await mostrarMaos()
 }
 iniciarJogo()
