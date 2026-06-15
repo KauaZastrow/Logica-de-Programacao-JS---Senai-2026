@@ -9,7 +9,7 @@ let jogadores = []
 function addJogador() {
     let maisJogadores = null
     do {
-        jogador = {
+        let jogador = {
             nome: leitor.question("Your name: "),
             deckPessoal: [],
             pontos: null
@@ -17,11 +17,11 @@ function addJogador() {
         jogadores.push(jogador)
         if (jogadores.length === 4) {
             console.log("Limite de jogadores alcançados!")
-            maisJogadores = false
+            break
         }
         maisJogadores = leitor.keyInYN("Mais um jogador? ")
     } while (maisJogadores)
-    dealer = {
+    const dealer = {
         nome: "Dealer",
         deckPessoal: [],
         pontos: null
@@ -62,9 +62,9 @@ async function pegar_Carta(deckID, quantidade) {
 async function addCartasIniciaisMaos() {
     try {
         let cartas = null
-        for (const carta of jogadores) {
-            cartas = pegar_Carta(deckID, 2)
-            carta.deckPessoal.push(cartas[0], cartas[1])
+        for (const jogador of jogadores) {
+            cartas = await pegar_Carta(deckID, 2)
+            jogador.deckPessoal.push(cartas[0], cartas[1])
         }
     }
     catch (error) {
@@ -72,29 +72,31 @@ async function addCartasIniciaisMaos() {
     }
 }
 function mostrarMaos() {
+    console.log(`\n${jogadores[0].nome}`)
+    console.log(jogadores[0].deckPessoal[0])
+    console.log("[CARTA ESCONDIDA]")
     for (let i = 1; i < jogadores.length; i++) {
+        console.log(`\n${jogadores[i].nome}`)
+
         for (let l = 0; l < jogadores[i].deckPessoal.length; l++) {
             console.log(jogadores[i].deckPessoal[l])
         }
     }
 }
 // Add uma carta ao pedir mais uma
-async function addCartasMaos() {
+async function adicionarCartaJogador(indiceJogador) {
     try {
-        for (const carta of jogadores) {
-            cartas = await pegar_Carta(deckID, 1)
-            console.log(cartas)
-            carta.deckPessoal.push(cartas[0])
-        }
+        let cartas = await pegar_Carta(deckID, 1)
+        jogadores[indiceJogador].deckPessoal.push(cartas[0])
     }
     catch (error) {
-        console.log("erro na function addCartasMaos()")
+        console.log("erro na function adicionarCartaJogador()")
     }
 }
 async function iniciarJogo() {
     addJogador()
     await gerarBaralho()
     await addCartasIniciaisMaos()
-    await mostrarMaos()
+    mostrarMaos()
 }
 iniciarJogo()

@@ -47,8 +47,6 @@ function perdeu() {
 
 function iniciar() {
     palavraEscolhida = gerarPalavra();
-    console.log(estadosForca[erros]);
-    console.log(palavraEscolhida)
     riscosNoLugarDasLetras(palavraEscolhida, riscos);
 
     // JOGO EM SI
