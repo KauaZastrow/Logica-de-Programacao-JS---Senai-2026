@@ -14,14 +14,13 @@ const taxa = {
     saque_18a7: 0.20,
 }
 function usuarioBase() {
-    usuario = {
+    const usuario = {
         info_pessoais: {
             nome: "John",
-            Idade: 19,
+            idade: 19,
             cpf: "45878935499",
             telefone: "(55) 15 996765994",
             email: "johnLock@gmail.com",
-            rendaFixa: 1800.00
         },
         saldo: {
             contaCorrente: 0,
@@ -36,20 +35,21 @@ function usuarioBase() {
                 hora: "21:43"
             }
         ],
-        tipo: "Cartão ",
+        tipo: "Cartão",
         logado: false,
         limites: {},
-        cep: "789456541",
+        cep: "76815986",
     }
     usuario.limites = {
         //-------------------DEPOSITO-----------------------
-        limiteDeposito_7a12: 2 * usuario.info_pessoais.rendaFixa,
-        limiteDeposito_12a18: 3 * usuario.info_pessoais.rendaFixa,
-        limiteDeposito_18a7: usuario.info_pessoais.rendaFixa,
+        limiteDeposito_7a12: 2 * usuario.saldo.contaCorrente,
+        limiteDeposito_12a18: 3 * usuario.saldo.contaCorrente,
+        limiteDeposito_18a7: usuario.saldo.contaCorrente,
         //--------------------SAQUE-------------------------
-        limiteSaque_7a12: 1.5 * usuario.info_pessoais.rendaFixa,
-        limiteSaque_12a18: 2 * usuario.info_pessoais.rendaFixa,
-        limiteSaque_18a7: 0.5 * usuario.info_pessoais.rendaFixa
+        limiteSaque_7a12: 1.5 * usuario.saldo.contaCorrente,
+        limiteSaque_12a18: 2 * usuario.saldo.contaCorrente,
+        limiteSaque_18a7: 0.5 * usuario.saldo.contaCorrente
     }
     return usuario
 }
+let conta = usuarioBase()
