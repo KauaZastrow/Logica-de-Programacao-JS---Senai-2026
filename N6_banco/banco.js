@@ -1,5 +1,11 @@
 const lT = require("readline-sync")
 
+// É PARA A VERIFICACAO OBRIGATORIA DE EMAIL
+const gmailCom = "@gmail.com"
+
+// CASO TENTE UM EMAIL MAIS DE 3 VEZES E AINDA ERRE || CASO ERRE A SENHA 3 VEZES || OUTRO MOTIVO
+let bloqueio_De_Seguranca = false
+
 // BANCO
 
 let contas = [
@@ -10,12 +16,36 @@ let contas = [
         telefone: "(55) 15 996765994",
         email: "johnLock@gmail.com",
         senha: "1234",
-        saldo: 1000,
+        saldo: 1234,
         historico: []
     }
 ]
 
 // FUNCOES DO BANCO
+
+// VERIFICAR SE O EMAIL TEM "@GMAIL.COM"
+function vericacao_De_Email() {
+
+    let email_Verificado = null
+    email_Verificado = lT.question("Digite seu email: ")
+
+    if (!email_Verificado.includes(gmailCom)) {
+
+        // VAI RODAR ENQUANTO NAO HOUVER "@GMAIL.COM"
+        for (let i = 0; i < 3; i++) {
+
+            // EXIBE EM CASO DE VC ESQUECER
+            console.log("Voce esqueceu de escrever => @gmail.com")
+            email_Verificado = lT.question("\nDigite seu email novamente: ")
+            if (email_Verificado.includes(gmailCom)) {
+                // VAI RETORNAR CASO TENHA O "@GMAIL.COM"
+                break
+            }
+            console.log("")
+        }
+    }
+    return email_Verificado
+}
 
 // QUANDO O USUARIO FAZER UMA TRANSACAO VAI FICAR REGISTRADA NO HISTORICO DENTRO DA CONTA
 function registrar(conta, tipo_De_transacao, valor_Da_Transacao) {
@@ -63,7 +93,7 @@ function login() {
     console.log("LOGIN")
 
     // VAI PERGUNTAR O EMAIL E A SENHA
-    let email = lT.question("Email: ")
+    let email = vericacao_De_Email()
     let senha = lT.question("Senha: ")
 
     for (let conta of contas) {
@@ -86,16 +116,15 @@ function depositar(conta) {
 
     if (valor <= 0) {
         console.log("Falha no deposito. Valor invalido.")
-        return // UNICO MEIO QUE ACHEI PARA PARAR A EXECUÇÃO DA FUNÇÃO SE O VALOR FOR INVALIDO. O MESMO SE SEGUE COM AS OUTRAS FUNÇÕES ABAIXO
+    } else {
+        // ADD O VALOR
+        conta.saldo += valor
+
+        // REGISTRO
+        registrar(conta, "Deposito", valor)// CONTA, TIPO DE TRANSACAO, VALOR
+
+        console.log("Deposito realizado com sucesso.")
     }
-
-    // ADD O VALOR
-    conta.saldo += valor
-
-    // REGISTRO
-    registrar(conta, "Deposito", valor)// CONTA, TIPO DE TRANSACAO, VALOR
-
-    console.log("Deposito realizado com sucesso.")
 }
 
 // FUNCAO DE SAQUE
@@ -108,15 +137,14 @@ function sacar(conta) {
     // VERIFICA O SALDO DA CONTA E SE O VALOR E VALIDO
     if (valor <= 0 || valor > conta.saldo) {
         console.log("Falha no saque. Saldo insuficiente.")
-        return
+    } else {
+        // VAI DESCONTAR O VALOR DO SAQUE DO SALDO DA CONTA
+        conta.saldo -= valor
+
+        // REGISTRO
+        registrar(conta, "Saque", valor)// CONTA, TIPO DE TRANSACAO, VALOR
+        console.log("Saque realizado com sucesso.")
     }
-
-    // VAI DESCONTAR O VALOR DO SAQUE DO SALDO DA CONTA
-    conta.saldo -= valor
-
-    // REGISTRO
-    registrar(conta, "Saque", valor)// CONTA, TIPO DE TRANSACAO, VALOR
-    console.log("Saque realizado com sucesso.")
 }
 
 // FUNCAO DE TRANSFERENCIA
@@ -138,25 +166,20 @@ function transferir(conta) {
     // CASO O DESTINO NAO EXISTA
     if (!destino) {
         console.log("Conta nao encontrada.")
-        return
-    }
-
-    // VERIFICA O VALOR E O SALDO, SE TEM DINHEIRO SUFICIENTE PARA A TRANSFERENCIA
-    if (valor <= 0 || valor > conta.saldo) {
+    } else if (valor <= 0 || valor > conta.saldo) {// VERIFICA O VALOR E O SALDO, SE TEM DINHEIRO SUFICIENTE PARA A TRANSFERENCIA
         console.log("Falha na transferencia. Saldo insuficiente.")
-        return
+    } else {
+        // VAI TRANSFERIR E DESCONTAR O VALOR TRANSFERIDO
+        conta.saldo -= valor
+        destino.saldo += valor
+
+        // REGISTRO PARA A CONTA DE ORIGEM
+        registrar(conta, "Transferencia enviada", valor)
+
+        // REGISTRO PARA DESTINO
+        registrar(destino, "Transferencia recebida", valor)
+        console.log("Transferencia realizada.")
     }
-
-    // VAI TRANSFERIR E DESCONTAR O VALOR TRANSFERIDO
-    conta.saldo -= valor
-    destino.saldo += valor
-
-    // REGISTRO PARA A CONTA DE ORIGEM
-    registrar(conta, "Transferencia enviada", valor)
-
-    // REGISTRO PARA DESTINO
-    registrar(destino, "Transferencia recebida", valor)
-    console.log("Transferencia realizada.")
 }
 
 function extrato(conta) {
@@ -165,16 +188,16 @@ function extrato(conta) {
     // CASO SEJA SEM TRANSFERENCIA NENHUMA
     if (conta.historico.length === 0) {
         console.log("Nenhuma movimentacao.")
-        return
-    }
+    } else {
 
-    // EXIBE AS INFORMAÇÕES DE CADA TRANSACAO DO HISTORICO DO USUARIO
-    for (let item of conta.historico) {
+        // EXIBE AS INFORMAÇÕES DE CADA TRANSACAO DO HISTORICO DO USUARIO
+        for (let item of conta.historico) {
 
-        console.log(`${item.tipo_De_transacao}:`)
-        console.log(`Valor: R$${item.valor_Da_Transacao.toFixed(2)}`)
-        console.log(`Data: ${item.data}`)
-        console.log(`Hora: ${item.hora}`)
+            console.log(`${item.tipo_De_transacao}:`)
+            console.log(`Valor: R$${item.valor_Da_Transacao.toFixed(2)}`)
+            console.log(`Data: ${item.data}`)
+            console.log(`Hora: ${item.hora}`)
+        }
     }
 }
 
