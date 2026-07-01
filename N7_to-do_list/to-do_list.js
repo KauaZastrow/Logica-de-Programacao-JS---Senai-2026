@@ -4,11 +4,10 @@ let listaTarefas = []
 // ---------------------------ADD TAREFA----------------------------------
 
 function preFab_tarefa(nomeTarefa = "Nao especificado", descricaoTarefa = "Nao vai escrever nada? Patetic!") {
-    linhaSeparadoraAutomatica()
     listaTarefas.push(
         {
             nomeTarefa,
-            descricaoTarefa,
+            descricaoTarefa
         }
     )
 }
@@ -32,25 +31,30 @@ function addTarefa() {
 }
 
 // ---------------------------VISUALIZAR LISTA----------------------------------
-for (let i = 0; i < listaTarefas.length; i++){
-console.log(`===========================================\n|\n| ${listaTarefas[i].nomeTarefa}\n|\n===========================================\n|\n| ${listaTarefas[i++].descricaoTarefa}\n|\n===========================================`)
+function consoleTitulos(lista) {
+    if (lista.length != 0) {
+        for (let i = 0; i < lista.length; i++) {
+            console.log(`\n--------------------- TAREFA ${i + 1} ---------------------\n\n===========================================\n|\n| ${lista[i].nomeTarefa}\n|\n===========================================`)
+        }
+    } else console.log("LISTA DE TAREFAS VAZIA!")
 }
+
 function mostrarMenu() {
-    console.log("     ------------------")
-    console.log("1 - [     Adicionar    ]")
-    console.log("     ------------------")
-    console.log("2 - [ Visualizar lista ]")
-    console.log("     ------------------")
-    console.log("3 - [ Visualizar item  ]")
-    console.log("     ------------------")
-    console.log("4 - [      Editar      ]")
-    console.log("     ------------------")
-    console.log("5 - [      Excluir     ]")
-    console.log("     ------------------")
-    console.log("6 - [      Filtrar     ]")
-    console.log("     ------------------")
-    console.log("7 - [      Encerrar    ]")
-    console.log("     ------------------")
+    console.log("        ------------------")
+    console.log("   1 - [     ADICIONAR    ]") // Pronto👌🤌🤏👍
+    console.log("        ------------------")
+    console.log("   2 - [ VISUALIZAR LISTA ]")
+    console.log("        ------------------")
+    console.log("   3 - [ VISUALIZAR ITEM  ]")
+    console.log("        ------------------")
+    console.log("   4 - [      Editar      ]")
+    console.log("        ------------------")
+    console.log("   5 - [      EXCLUIR     ]")
+    console.log("        ------------------")
+    console.log("   6 - [      FILTRAR     ]")
+    console.log("        ------------------")
+    console.log("   7 - [      ENCERRAR    ]")
+    console.log("        ------------------")
 }
 
 // ---------------------------MENU----------------------------------
@@ -61,7 +65,7 @@ function escolhaDaOpcao(num) {
             addTarefa()
             break
         case 2:
-            
+            consoleTitulos(listaTarefas)
             break
         case 3:
             break
@@ -113,10 +117,9 @@ function menu() {
 }
 
 menu()
-console.log(listaTarefas)
 // 1. Adicionar – cadastrar uma nova tarefa (card), informando título e texto/descrição.
-
 // 2. Visualizar lista – exibir a lista de tarefas mostrando apenas os títulos cadastrados.
+
 // 3. Visualizar item – solicitar ao usuário qual item deseja exibir, e o sistema deve exibir o texto/descrição
 // completa daquela tarefa.
 // 4. Editar – solicitar ao usuário qual item deseja editar e se a edição é do título ou do texto/descrição; permitir
