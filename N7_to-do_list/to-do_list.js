@@ -125,14 +125,15 @@ function consoleDescricao(lista) {
 
 // --------------------------------EDITAR--------------------------------
 
-
 function trocaDeValores(num, nome, desc) {
     listaTarefas.splice(num, 1, { nomeTarefa: nome, descricaoTarefa: desc })
 }
 
 function verificacaoEscolhaEdicao(lista) {
+    consoleTitulos(lista)
     let numTitulo = lT.questionInt("\nDigite o numero da tarefa que deseja editar: ") - 1
     while (numTitulo < 0 || numTitulo >= lista.length) {
+        consoleTitulos(lista)
         numTitulo = lT.questionInt("\nNumero invalido! Digite zero para sair.\nDigite o numero da tarefa que deseja editar: ") - 1
         if (numTitulo === -1) break
     }
@@ -159,6 +160,17 @@ function editar(num) {
     }
     trocaDeValores(num, nome, desc)
 }
+
+function edicao() {
+    const vazia = verificacaoMaisMensagem(listaTarefas)
+    if (vazia) {
+        const num = verificacaoEscolhaEdicao(listaTarefas)
+        if (num !== undefined) {
+            editar(num)
+        }
+    }
+}
+
 // -----------------------------------EXCLUIR-----------------------------------
 
 function verificacaoEscolhaExclusao(lista) {
@@ -181,34 +193,61 @@ function excluirTarefa(lista) {
     }
 }
 
-// -------------------------------VISUALIZAR MENU-------------------------------
+// -----------------------------------FILTRO------------------------------------
 
-function filtro() {
-
-    const palavra = lT.question("Digite a palavra que deseja filtrar: ").toUpperCase()
-    const resultado = listaTarefas.filter(item => item.nomeTarefa.toUpperCase().includes(palavra))
-    return resultado
+function palavraFiltrada(){
+    let tituloNome = lT.question("Digite a palavra a ser filtrada: ")
+    tituloNome = tituloNome.toUpperCase().trim()
+    return tituloNome
 }
 
+
+function filtroDeLista(lista, nome) {
+    for (let i = 0; i < lista.length; i++) {
+        let item = lista[i].nomeTarefa
+        if (item.includes(nome)) {
+            titulo(lista, i)
+        }
+    }
+}
+
+function consoleTitulosFiltrados(lista, nome) {
+    const exibir = verificacaoMaisMensagem(lista)
+    if (exibir) {
+        if (lista.includes(nome)) {
+            return true
+        } else {
+            console.log("Palavra não encontrada!")
+            return undefined
+        }
+
+    }
+}
+
+function filtro(lista) {
+    const tituloDigitado = palavraFiltrada()
+    const existe = consoleTitulosFiltrados(lista, tituloDigitado)
+    if (existe != undefined || existe != false) filtroDeLista(lista, tituloDigitado)
+}
 
 // -------------------------------VISUALIZAR MENU-------------------------------
 
 function mostrarMenu() {
-    console.log("        ------------------")
+    console.log("\n        ------------------\n")
     console.log("   1 - [     ADICIONAR    ]") // Pronto👌🤌🤏👍
-    console.log("        ------------------")
+    console.log("\n        ------------------\n")
     console.log("   2 - [ VISUALIZAR LISTA ]") // Pronto👌🤌🤏👍
-    console.log("        ------------------")
+    console.log("\n        ------------------\n")
     console.log("   3 - [ VISUALIZAR ITEM  ]") // Pronto👌🤌🤏👍
-    console.log("        ------------------")
-    console.log("   4 - [      Editar      ]") // Pronto👌🤌🤏👍
-    console.log("        ------------------")
+    console.log("\n        ------------------\n")
+    console.log("   4 - [      EDITAR      ]") // Pronto👌🤌🤏👍
+    console.log("\n        ------------------\n")
     console.log("   5 - [      EXCLUIR     ]") // Pronto👌🤌🤏👍
-    console.log("        ------------------")
+    console.log("\n        ------------------\n")
     console.log("   6 - [      FILTRAR     ]")
-    console.log("        ------------------")
-    console.log("   7 - [      ENCERRAR    ]")
-    console.log("        ------------------")
+    console.log("\n        ------------------\n")
+    console.log("   7 - [      ENCERRAR    ]") // Pronto👌🤌🤏👍
+    console.log("\n        ------------------\n")
 }
 
 // ---------------------------MENU----------------------------------
@@ -225,23 +264,13 @@ function escolhaDaOpcao(num) {
             consoleDescricao(listaTarefas)
             break
         case 4:
-            const vazia = verificacaoMaisMensagem(listaTarefas)
-            if (vazia) {
-                const num = verificacaoEscolhaEdicao(listaTarefas)
-                if (num !== undefined) {
-                    editar(num)
-                }
-            }
+            edicao()
             break
         case 5:
             excluirTarefa(listaTarefas)
             break
         case 6:
-            const resultado = filtro()
-            const exibir = verificacaoMaisMensagem(resultado)
-            if (exibir) {
-                consoleTitulos(resultado)
-            }
+            filtro(listaTarefas)
             break
         case 7:
             console.log("PARABENS, VOCE FOI O PRIMEIRO USUARIO DO MENUSlice!\n SAINDO...")
@@ -275,11 +304,6 @@ function repeteMenu() {
         numVeredito = verificacaoDeNumeroDeOpcao_FazerAcao()
     } while (numVeredito != 7)
 }
-
-
-
-
-
 
 function menu() {
     repeteMenu()
