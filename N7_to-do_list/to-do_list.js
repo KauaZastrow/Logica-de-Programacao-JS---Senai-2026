@@ -12,30 +12,36 @@ function preFab_tarefa(nomeTarefa, descricaoTarefa) {
     )
 }
 
-function addTitulo() {
-
+function verificarNomeTitulo() {
     let nomeItem = lT.question("Qual o nome do item?\nDigite aqui: ").trim()
-
-    if (nomeItem === "") {
-        nomeItem = undefined
-
-    } else {
-        nomeItem = nomeItem.toUpperCase()
+    while (nomeItem === "") {
+        console.log("O nome do item nao pode estar vazio! Tente novamente.")
+        nomeItem = lT.question("Qual o nome do item?\nDigite aqui: ").trim()
     }
     return nomeItem
 }
 
-function addDescricao() {
+function addTitulo() {
 
-    let descricaoItem = lT.question("Tem descricao do item?\nDigite aqui: ").trim()
+    let nomeItem = verificarNomeTitulo()
+    nomeItem = nomeItem.toUpperCase()
 
-    if (descricaoItem === "") {
-        descricaoItem = undefined
+    return nomeItem
+}
 
-    } else {
-        descricaoItem = descricaoItem.toLowerCase()
+function verificarDescricao() {
+    let descricaoItem = lT.question("Qual a descricao do item?\nDigite aqui: ").trim()
+    while (descricaoItem === "") {
+        console.log("A descricao do item nao pode estar vazio! Tente novamente.")
+        descricaoItem = lT.question("Qual a descricao do item?\nDigite aqui: ").trim()
     }
     return descricaoItem
+}
+
+function addDescricao() {
+    let descricao = verificarDescricao()
+    descricao = descricao.toLowerCase()
+    return descricao
 }
 
 function addTarefa() {
@@ -86,9 +92,9 @@ function descricao(lista, indice) {
 function verificacaoEscolhaDescricao(lista) {
 
     let numTitulo = lT.questionInt("\nDigite o numero da tarefa que deseja ver a descricao: ") - 1
-    while (numTitulo < -1 || numTitulo >= lista.length) {
-        numTitulo = lT.questionInt("\nNumero invalido!\nDigite o numero da tarefa que deseja ver a descricao: ") - 1
-        if (numTitulo === 0) break
+    while (numTitulo < 0 || numTitulo >= lista.length) {
+        numTitulo = lT.questionInt("\nNumero invalido! Digite zero para sair.\nDigite o numero da tarefa que deseja ver a descricao: ") - 1
+        if (numTitulo === -1) break
     }
     if (numTitulo != -1) return numTitulo
 }
@@ -120,14 +126,22 @@ function consoleDescricao(lista) {
 // --------------------------------EDITAR--------------------------------
 
 
-function trocaDeValores(num, lista[num].nomeTarefa, lista[num].descricaoTarefa) {
-    listaTarefas.splice(num, 1, { nomeTarefa, descricaoTarefa })
+function trocaDeValores(num, nome, desc) {
+    listaTarefas.splice(num, 1, { nomeTarefa: nome, descricaoTarefa: desc })
 }
 
-function editar() {
-    let qualTarefaEditar = lT.questionInt("Qual Tarefa deseja editar?\nDigite seu numero: ") - 1
-    let nome = listaTarefas[qualTarefaEditar].nomeTarefa
-    let desc = listaTarefas[qualTarefaEditar].descricaoTarefa
+function verificacaoEscolhaEdicao(lista) {
+    let numTitulo = lT.questionInt("\nDigite o numero da tarefa que deseja editar: ") - 1
+    while (numTitulo < 0 || numTitulo >= lista.length) {
+        numTitulo = lT.questionInt("\nNumero invalido! Digite zero para sair.\nDigite o numero da tarefa que deseja editar: ") - 1
+        if (numTitulo === -1) break
+    }
+    if (numTitulo !== -1) return numTitulo
+}
+
+function editar(num) {
+    let nome = listaTarefas[num].nomeTarefa
+    let desc = listaTarefas[num].descricaoTarefa
     console.log("1 - TITULO\n2 - DESCRICAO\n3 - TUDO")
 
     let tresOpcoesDeEdicao = lT.questionInt("O que deseja editar?\nDigite seu numero: ")
@@ -143,8 +157,39 @@ function editar() {
             desc = addDescricao()
             break
     }
-    trocaDeValores(qualTarefaEditar, nome, desc)
+    trocaDeValores(num, nome, desc)
 }
+// -----------------------------------EXCLUIR-----------------------------------
+
+function verificacaoEscolhaExclusao(lista) {
+    let numTitulo = lT.questionInt("\nDigite o numero da tarefa que deseja excluir: ") - 1
+    while (numTitulo < 0 || numTitulo >= lista.length) {
+        numTitulo = lT.questionInt("\nNumero invalido! Digite zero para sair.\nDigite o numero da tarefa que deseja excluir: ") - 1
+        if (numTitulo === -1) break
+    }
+    if (numTitulo !== -1) return numTitulo
+}
+
+function excluirTarefa(lista) {
+    const exibir = verificacaoMaisMensagem(lista)
+    if (exibir) {
+        const num = verificacaoEscolhaExclusao(lista)
+        if (num !== undefined) {
+            lista.splice(num, 1)
+            console.log("\nTarefa excluida\n")
+        }
+    }
+}
+
+// -------------------------------VISUALIZAR MENU-------------------------------
+
+function filtro() {
+
+    const palavra = lT.question("Digite a palavra que deseja filtrar: ").toUpperCase()
+    const resultado = listaTarefas.filter(item => item.nomeTarefa.toUpperCase().includes(palavra))
+    return resultado
+}
+
 
 // -------------------------------VISUALIZAR MENU-------------------------------
 
@@ -156,9 +201,9 @@ function mostrarMenu() {
     console.log("        ------------------")
     console.log("   3 - [ VISUALIZAR ITEM  ]") // Pronto👌🤌🤏👍
     console.log("        ------------------")
-    console.log("   4 - [      Editar      ]")
+    console.log("   4 - [      Editar      ]") // Pronto👌🤌🤏👍
     console.log("        ------------------")
-    console.log("   5 - [      EXCLUIR     ]")
+    console.log("   5 - [      EXCLUIR     ]") // Pronto👌🤌🤏👍
     console.log("        ------------------")
     console.log("   6 - [      FILTRAR     ]")
     console.log("        ------------------")
@@ -180,22 +225,36 @@ function escolhaDaOpcao(num) {
             consoleDescricao(listaTarefas)
             break
         case 4:
+            const vazia = verificacaoMaisMensagem(listaTarefas)
+            if (vazia) {
+                const num = verificacaoEscolhaEdicao(listaTarefas)
+                if (num !== undefined) {
+                    editar(num)
+                }
+            }
             break
         case 5:
+            excluirTarefa(listaTarefas)
             break
         case 6:
+            const resultado = filtro()
+            const exibir = verificacaoMaisMensagem(resultado)
+            if (exibir) {
+                consoleTitulos(resultado)
+            }
             break
         case 7:
             console.log("PARABENS, VOCE FOI O PRIMEIRO USUARIO DO MENUSlice!\n SAINDO...")
             break
         default:
-            console.log("\nEste numero nao e valido! por favor tente novamente\n")
+            console.log("\nEste numero nao é valido! por favor tente novamente\n")
             return false
     }
     return true
 }
 
 function escolherOpcaoMenu() {
+    mostrarMenu()
     const numeroDaOpcao = lT.questionInt("\nDigite a opcao desejada: ")
     escolhaDaOpcao(numeroDaOpcao)
     return numeroDaOpcao
@@ -223,7 +282,6 @@ function repeteMenu() {
 
 
 function menu() {
-    mostrarMenu()
     repeteMenu()
 }
 
@@ -232,10 +290,10 @@ menu()
 // 2. Visualizar lista – exibir a lista de tarefas mostrando apenas os títulos cadastrados.
 // 3. Visualizar item – solicitar ao usuário qual item deseja exibir, e o sistema deve exibir o texto/descrição
 // completa daquela tarefa.
-
 // 4. Editar – solicitar ao usuário qual item deseja editar e se a edição é do título ou do texto/descrição; permitir
 // a edição da informação desejada do item selecionado.
 // 5. Excluir – solicitar ao usuário uma tarefa existente e removê-la da lista.
+
 // 6. Filtrar – buscar tarefas a partir de um termo digitado pelo usuário, comparando com o título das tarefas, e
 // exibir somente os resultados que atendam ao filtro.
 // 7. Encerrar – O menu deve permanecer em execução (loop) até que o usuário escolha a opção de saída,
