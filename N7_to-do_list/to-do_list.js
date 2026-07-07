@@ -18,6 +18,14 @@ function verificarNomeTitulo() {
         console.log("O nome do item nao pode estar vazio! Tente novamente.")
         nomeItem = lT.question("Qual o nome do item?\nDigite aqui: ").trim()
     }
+    while (nomeItem.length > 50) {
+        console.log("O nome do item nao pode ter mais de 50 caracteres! Tente novamente.")
+        nomeItem = lT.question("Qual o nome do item?\nDigite aqui: ").trim()
+    }
+    while (nomeItem.length < 10) {
+        console.log("O nome do item nao pode ter menos de 10 caracteris! Tente novamente.")
+        nomeItem = lT.question("Qual o nome do item?\nDigite aqui: ").trim()
+    }
     return nomeItem
 }
 
@@ -34,6 +42,14 @@ function verificarDescricao() {
     while (descricaoItem === "") {
         console.log("A descricao do item nao pode estar vazio! Tente novamente.")
         descricaoItem = lT.question("Qual a descricao do item?\nDigite aqui: ").trim()
+    }
+    while (nomeItem.length > 100) {
+        console.log("A descricao do item nao pode ter mais de 100 caracteres! Tente novamente.")
+        nomeItem = lT.question("Qual o nome do item?\nDigite aqui: ").trim()
+    }
+    while (nomeItem.length < 20) {
+        console.log("A descricao do item nao pode ter menos de 20 caracteris! Tente novamente.")
+        nomeItem = lT.question("Qual o nome do item?\nDigite aqui: ").trim()
     }
     return descricaoItem
 }
@@ -85,6 +101,11 @@ function titulo(lista, indice) {
 
 function descricao(lista, indice) {
     console.log(`\n--------------------- TAREFA ${indice + 1} ---------------------\n\n===========================================\n|\n| ${lista[indice].descricaoTarefa}\n|\n===========================================`)
+}
+
+function tituloMaisDescricao(lista, indice) {
+    console.log(`\n--------------------- TAREFA ${indice + 1} ---------------------\n\n===========================================\n|\n| ${lista[indice].nomeTarefa}\n|\n===========================================`)
+    console.log(`|\n| ${lista[indice].descricaoTarefa}\n|\n===========================================`)
 }
 
 // -----------------------VERIFICACAO DA ESCOLHA DE TITULO-----------------------
@@ -195,7 +216,7 @@ function excluirTarefa(lista) {
 
 // -----------------------------------FILTRO------------------------------------
 
-function palavraFiltrada(){
+function palavraFiltrada() {
     let tituloNome = lT.question("Digite a palavra a ser filtrada: ")
     tituloNome = tituloNome.toUpperCase().trim()
     return tituloNome
@@ -206,7 +227,7 @@ function filtroDeLista(lista, nome) {
     for (let i = 0; i < lista.length; i++) {
         let item = lista[i].nomeTarefa
         if (item.includes(nome)) {
-            titulo(lista, i)
+            tituloMaisDescricao(lista, i)
         }
     }
 }
@@ -244,7 +265,7 @@ function mostrarMenu() {
     console.log("\n        ------------------\n")
     console.log("   5 - [      EXCLUIR     ]") // Pronto👌🤌🤏👍
     console.log("\n        ------------------\n")
-    console.log("   6 - [      FILTRAR     ]")
+    console.log("   6 - [      FILTRAR     ]") // Pronto👌🤌🤏👍
     console.log("\n        ------------------\n")
     console.log("   7 - [      ENCERRAR    ]") // Pronto👌🤌🤏👍
     console.log("\n        ------------------\n")
